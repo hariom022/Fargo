@@ -1,0 +1,85 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #4674ee !important;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.choices .choices__input {
+    padding: 10px !important;
+}
+
+
+.task-cart-container {
+    margin: 20px;
+    border: 2px solid #f2eded;
+}
+
+
+.form-container {
+    background-color: #ffffff; /* White background for the form */
+    border: 2px solid #4674ee; /* Blue border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+
+    margin: auto;
+}
+
+.form-label {
+    font-weight: bold; /* Bold labels */
+    color: #333; /* Darker text color for labels */
+}
+
+.form-select, .form-control, .form-check-input {
+    border-radius: 5px; /* Slightly rounded inputs */
+}
+
+.form-check-label {
+    margin-left: 10px; /* Space between checkbox/toggle and label */
+    color: #555; /* Slightly lighter text for check labels */
+}
+
+.form-check-input:checked {
+    background-color: rgba(18,36,84,255) !important; /* Blue color for checked boxes */
+    border-color: rgba(18,36,84,255) !important;
+}
+
+.btn-primary {
+    background-color: #007bff; /* Custom button color */
+    border-color: #007bff;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+        border-color: #004085;
+    }
+
+.btn-color {
+    background-color: #4674ee !important;
+    color: white !important;
+}
+
+
+
+    @media (max-width:668px) {
+        .form-container {
+            width: 100% !important;
+        }
+    }
