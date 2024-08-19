@@ -18,4 +18,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CITApplication\CITApplication.csproj" />
+    <ProjectReference Include="..\CITInfrastructure\CITInfrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
