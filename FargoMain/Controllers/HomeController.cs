@@ -14,7 +14,7 @@ namespace FargoMain.Controllers
         }
 
         public IActionResult Index()
-        {
+        {  
             return View();
         }
 

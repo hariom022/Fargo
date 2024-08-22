@@ -1,5 +1,4 @@
-﻿using CITDomain.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace CITApplication.Interfaces
 {
-    public interface IUserService
+    public interface IOrderService
     {
-        public Task<UserModel> GetUserDetails(string username);
+
     }
 }

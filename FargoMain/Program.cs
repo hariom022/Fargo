@@ -1,7 +1,26 @@
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using CITApplication;
+//using CleanArchitecture.Domain;
+using CITInfrastructure;
+using Microsoft.AspNetCore.Server.IISIntegration;
+using Microsoft.AspNetCore.Builder;
+using CITDomain.Interfaces;
+using CITInfrastructure.Repository;
+using CITApplication.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+var Configuration = builder.Configuration;
+
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.RegisterApplicationsServices(Configuration);
+builder.Services.RegisterInfrastructureServices(Configuration);
+
 
 var app = builder.Build();
 
@@ -17,7 +36,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+//app.UseSession();
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

@@ -1,0 +1,235 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+div class="task-cart-container">
+<div class="card" style=" border: none !important; padding-bottom:20px">
+    <div class="card-body">
+        <h5 class="card-title">New Task</h5>
+
+        <!-- Bordered Tabs -->
+        <ul class="nav nav-tabs nav-tabs-bordered" id="borderedTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="overview-tab" data-bs-toggle="tab" data-bs-target="#bordered-overview-tab" type="button" role="tab" aria-controls="overview-tab" aria-selected="true">Overview </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="new-task-tab" data-bs-toggle="tab" data-bs-target="#bordered-new-task-tab" type="button" role="tab" aria-controls="new-task-tab" aria-selected="false">New Task </button>
+            </li>
+
+        </ul>
+        <div class="tab-content pt-2 task-tab " id="borderedTabContent" style=" margin-top:2rem;">
+            <div class=" tab-pane fade show active form-container " id="bordered-overview-tab" role="tabpanel" aria-labelledby="overview-tab">
+                <form>
+
+                    <div class="row align-items-center ">
+                        <!-- OrderType Dropdown -->
+                        <div class="col-md-4 col-sm-12 mb-3">
+                            @* <label for="orderType" class="form-label">Order Type</label> *@
+                            <div class="input-group">
+                                <div class="input-group-text">Order Type</div>
+                                <select class="form-select" id="orderType" name="orderType">
+                                    <option value="">Select Order Type</option>
+                                    <option value="1">Type 1</option>
+                                    <option value="2">Type 2</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- No of Vehicles (Number Input) -->
+                        <div class="col-md-4 col-sm-12 mb-3">
+                            <div class="input-group">
+                                <label for="productId" class="input-group-text">Product Id</label>
+                                <input type="number" placeholder="Enter Product Id " class="form-control" id="productId" name="productId" min="1" max="100">
+                            </div>
+                        </div>
+
+                        <!-- Full Day Occupancy Checkbox -->
+                        <div class="col-md-4 col-sm-12 form-check mb-3 fw-bold ">
+                            <input type="checkbox" class="form-check-input text-center" id="fullDayOccupancy" name="fullDayOccupancy">
+                            <label class="form-check-label" for="fullDayOccupancy">Full Day Occupancy</label>
+                        </div>
+                    </div>
+
+                    <div class="mt-3">
+                        <h6>Reapting task section</h6>
+                        <!-- Repeat This Task Toggle -->
+                        <div class="form-check form-switch mb-3 fw-bold">
+                            <input class="form-check-input" type="checkbox" id="repeatTask" name="repeatTask">
+                            <label class="form-check-label" for="repeatTask">Repeat this task</label>
+                        </div>
+
+                        <!-- Repeats Section (Initially Hidden) -->
+                        <div class="row align-items-center repeats-section" id="repeatsSection">
+                            <!-- Repeats Dropdown -->
+                            <div class="col-md-6 col-sm-12 mb-3">
+                                <div class="input-group">
+                                    <div class="input-group-text">Repeats</div>
+                                    <select class="form-select" id="repeats" name="repeats">
+                                        <option value="">Select Repeats</option>
+                                        <option value="daily">Daily</option>
+                                        <option value="weekly">Weekly</option>
+                                        <option value="monthly">Monthly</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- Ends On Calendar -->
+                            <div class="col-md-6 col-sm-12 mb-3">
+                                <div class="input-group">
+                                    <div class="input-group-text">Ends on</div>
+                                    <input type="date" class="form-control" id="endsOn" name="endsOn">
+                                </div>
+                            </div>
+                            <!-- Repeats On Multi-select Dropdown -->
+                            <div class="col-md-12 col-sm-12 mb-3">
+                                <label for="choices-multiple-remove-button" class="form-label">Repeats On</label>
+                                <select id="choices-multiple-remove-button" class="form-select" name="options" multiple>
+                                    <option value="Sunday">Sunday</option>
+                                    <option value="Monday">Monday</option>
+                                    <option value="Tuesday">Tuesday</option>
+                                    <option value="Wednesday">Wednesday</option>
+                                    <option value="Thursday">Thursday</option>
+                                    <option value="Friday">Friday</option>
+                                    <option value="Saturday">Saturday</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <!-- Pickup Type Dropdown -->
+                        <div class="col-md-6 col-sm-12 mb-3">
+                            @* <label for="pickupType" class="form-label">Pickup Type</label> *@
+                            <div class="input-group">
+                                <div class="input-group-text">Pickup Type</div>
+                                <select class="form-select" id="pickupType" name="pickupType">
+                                    <option value="">Select Pickup Type</option>
+                                    <option value="curbside">Curbside</option>
+                                    <option value="in-store">In-Store</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Priority Dropdown -->
+                        <div class="col-md-6 col-sm-12 mb-3">
+                            @* <label for="priority" class="form-label">Priority</label> *@
+                            <div class="input-group">
+                                <div class="input-group-text">Priority</div>
+                                <select class="form-select" id="priority" name="priority">
+                                    <option value="">Select Priority</option>
+                                    <option value="low">Low</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="high">High</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-end text-end">
+                        <button type="submit" class="btn   btn-color">Next</button>
+                    </div>
+                </form>
+            </div>
+
+
+            <div class="tab-pane fade form-container" id="bordered-new-task-tab" role="tabpanel" aria-labelledby="new-task-tab">
+                <form>
+                    <div class="row">
+                        <h6>Pickup Location Section</h6>
+                        <!-- Requester's Name Searchable Dropdown -->
+                        <div class="col-md-6 col-sm-12 mb-3">
+                            @* <label for="requesterName" class="form-label">Requester's Name</label> *@
+                            <select id="requesterName" class="form-select" name="requesterName">
+                                <option value="">Select Requester's Name</option>
+                                <option value="1">John Doe</option>
+                                <option value="2">Jane Smith</option>
+                                <option value="3">Alice Johnson</option>
+                            </select>
+                        </div>
+
+                        <!-- Pickup Location Searchable Dropdown -->
+                        <div class="col-md-6 col-sm-12 mb-3">
+                            @* <label for="pickupLocation" class="form-label">Pickup Location</label> *@
+                            <select id="pickupLocation" class="form-select" name="pickupLocation">
+                                <option value="">Select Pickup Location</option>
+                                <option value="loc1">Location 1</option>
+                                <option value="loc2">Location 2</option>
+                                <option value="loc3">Location 3</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <h6>Delivery Location Section</h6>
+
+                        <!-- IsVault Checkbox -->
+                        <div class="col-6">
+                            <div class="col-6 form-check mb-3 ms-1">
+                                <input type="checkbox" class="form-check-input " id="isVault" name="isVault">
+                                <label class="form-check-label" for="isVault">IsVault</label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <!-- isVault - final destination Checkbox -->
+                            <div class="col-8 form-check mb-3 ms-1" id="isVaultFinalContainer">
+                                <input type="checkbox" class="form-check-input" id="isVaultFinal" name="isVaultFinal">
+                                <label class="form-check-label" for="isVaultFinal">isVault - final destination</label>
+                            </div>
+                        </div>
+                        <!-- Recipient's Name Searchable Dropdown -->
+                        <div class="col-md-6 col-sm-12 mb-3">
+                            @* <label for="recipientName" class="form-label">Recipient's Name</label> *@
+                            <select id="recipientName" class="form-select" name="recipientName">
+                                <option value="">Select Recipient's Name</option>
+                                <option value="1">Michael Brown</option>
+                                <option value="2">Emily Davis</option>
+                                <option value="3">Chris Wilson</option>
+                            </select>
+                        </div>
+
+                        <!-- Delivery Location Searchable Dropdown -->
+                        <div class="col-md-6 col-sm-12 mb-3">
+                            @* <label for="deliveryLocation" class="form-label">Delivery Location</label> *@
+                            <select id="deliveryLocation" class="form-select" name="deliveryLocation">
+                                <option value="">Select Delivery Location</option>
+                                <option value="locA">Location A</option>
+                                <option value="locB">Location B</option>
+                                <option value="locC">Location C</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <!-- Pickup Time Calendar -->
+                        <div class="col-md-6 col-sm-12 mb-3">
+                            <label for="pickupTime" class="form-label">Pickup Time</label>
+                            <input type="datetime-local" class="form-control" id="pickupTime" name="pickupTime">
+                        </div>
+
+                        <!-- Delivery Time Calendar (Optional) -->
+                        <div class="col-md-6 col-sm-12 mb-3">
+                            <label for="deliveryTime" class="form-label">Delivery Time (optional)</label>
+                            <input type="datetime-local" class="form-control" id="deliveryTime" name="deliveryTime">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- No of Vehicles (Number Input) -->
+                        <div class="col-md-6 col-sm-12 mb-3">
+                            <label for="noOfVehicles" class="form-label">No of Vehicles</label>
+                            <input type="number" placeholder="Enter No of Vehicles" class="form-control" id="noOfVehicles" name="noOfVehicles" min="1" max="100">
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn  btn-color">Submit</button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div><!-- End Bordered Tabs -->
+
+    </div>
+</div>
+</div>
