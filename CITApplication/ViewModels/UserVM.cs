@@ -9,6 +9,7 @@ namespace CITApplication.ViewModels
 {
     public class UserVM
     {
-        public UserModel GetUserDetails {  get; set; }
+        public UserModel Usermodel { get; set; }
+        public Task<UserModel> GetUserDetails { get; set; }
     }
 }

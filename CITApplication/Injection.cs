@@ -16,6 +16,7 @@ namespace CITApplication
         {
             services.AddScoped<IRegisteredServices, RegisteredServices>();
             return services;
+
         }
     }
 }

@@ -1,0 +1,34 @@
+﻿@model CITApplication.ViewModels.UserVM
+@{
+    //Layout = null;
+    //ViewBag.Title = "dishedends login";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    @* <link href="~/css/login.css" asp-append-version="true" rel="stylesheet" /> *@
+</head>
+<body>
+
+
+    <div class="login">
+        <div class="login__form">
+
+            <form asp-controller="User" asp-action="Index" method="post">
+                @*<span class="material-icons">lock</span>*@
+                
+
+                <input Asp-for="Usermodel.UserName">
+                
+
+               @*  <input id="ipPassword" type="password" asp-for="Password" placeholder="Password" required />
+                <span class="text-danger" asp-validation-for="Password"></span> *@
+
+                <button type="submit" value="Index">Login</button>
+            </form>
+
+        </div>
+    </div>
+</body>
+</html>

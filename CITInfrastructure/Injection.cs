@@ -25,8 +25,16 @@ namespace CITApplication
             new CITDbConnection(configuration.GetConnectionString("DefaultConnect"))
             );
 
-            service.AddScoped<CITDBContext>(options => options.GetService<CITDBContext>());
-            service.AddScoped<CITDbConnection>(options => options.GetService<CITDbConnection>());
+            service.AddScoped<ICITDBContext>(options => options.GetService<CITDBContext>());
+            service.AddScoped<ICITDbConnection>(options => options.GetService<CITDbConnection>());
+
+            //service.AddScoped<ICITDBContext>(options => options.GetService<CITDBContext>());
+
+            service.AddScoped<IUserService, UserService>();
+            service.AddScoped<IUserRepository, UserRepository>();
+
+            service.AddScoped<IOrderService, OrderService>();
+            service.AddScoped<IOrderRepository, OrderRepository>();
 
             //service.AddScoped<IRegistrationFormService, RegistrationFormServices>();
             //service.AddScoped<IRegistrationFormRepository, RegsitrationFormRepository>();

@@ -17,13 +17,9 @@ namespace CITApplication.Services
         {
             _userRepository = userRepository;
         }
-        public async Task<UserModel> GetUserDetails(string username)
-        {
-            return new UserVM()
-            {
-                GetUserDetails = _userRepository.GetUserDetails(username)
-            }.GetUserDetails;
-
+        public async Task<UserModel> GetUserDetails(string userName)
+        {       
+            return await _userRepository.GetUserDetails(userName);      
         }
     }
 }
