@@ -1,0 +1,53 @@
+﻿@{
+    // Add any necessary code for MVC integration or model binding here
+}
+
+<div class="col-auto py-1 ms-2">
+    <div class="form-container-data">
+        <div class="row main-form-content bg-success text-center">
+            <div class="col-md-4 text-center company__info">
+                <span class="company__logo">
+                    <h2>
+                        <img src="~/assets/Images/logomain.png" alt="Company Logo">
+                    </h2>
+                </span>
+                <!-- <h4 class="company_title">Fargo</h4> -->
+            </div>
+            <div class="col-md-8 col-xs-12 col-sm-12 login__form">
+                <div class="container-fluid">
+                    <div class="row">
+                        <h2>Register</h2>
+                    </div>
+                    <div class="row">
+                        <form action="" method="post" class="form-group">
+                            <div class="row mb-3">
+                                <input type="text" name="fullName" id="fullName" class="form__input form-control" placeholder="Enter Full Name">
+                            </div>
+                            <div class="row mb-3">
+                                <input type="email" name="email" id="email" class="form__input form-control" placeholder="Email">
+                            </div>
+                            <div class="row mb-3">
+                                <input type="password" name="password" id="password" class="form__input form-control" placeholder="Password">
+                            </div>
+                            <div class="row mb-3">
+                                <input type="password" name="confirm_password" id="confirm_password" class="form__input form-control" placeholder="Confirm Password">
+                            </div>
+                            <div class="row d-flex align-items-center mb-3">
+                                <div>
+                                    <input type="checkbox" name="agree_terms" id="agree_terms">
+                                    <label for="agree_terms">I agree to the <a href="#">terms and conditions</a></label>
+                                </div>
+                            </div>
+                            <div class="row d-flex justify-content-center">
+                                <input type="submit" value="Register" class="btn btn-primary form-btn-data">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row">
+                        <p>Already have an account? <a asp-action="Login">Log In Here</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -21,7 +21,8 @@ namespace CITApplication.Services
         {
             return new UserVM()
             {
-                GetUserDetails = _userRepository.GetUserDetails(username)
+                GetUserDetails = await _userRepository.GetUserDetails(username)
+                
             }.GetUserDetails;
 
         }
