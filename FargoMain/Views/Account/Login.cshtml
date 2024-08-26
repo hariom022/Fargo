@@ -1,0 +1,47 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="col-auto py-1 ms-2">
+    <div class="form-container-data">
+        <div class="row main-form-content bg-success text-center">
+            <div class="col-md-4 text-center company__info">
+                <span class="company__logo"><h2><img src="~/assets/Images/logomain.png" alt=""></h2></span>
+                <!-- <h4 class="company_title">Fargo</h4> -->
+            </div>
+            <div class="col-md-8 col-xs-12 col-sm-12 login__form ">
+                <div class="container-fluid">
+                    <div class="row">
+                        <h2>Log In</h2>
+                    </div>
+                    <div class="row">
+                        <form control="" class="form-group">
+                            <div class="row">
+                                <input type="text" name="username" id="username" class="form__input" placeholder="Username">
+                            </div>
+                            <div class="row">
+                                <!-- <span class="fa fa-lock"></span> -->
+                                <input type="password" name="password" id="password" class="form__input" placeholder="Password">
+                            </div>
+                            <div class="row d-flex">
+                                <div>
+                                    <input type="checkbox" name="remember_me" id="remember_me" class="">
+                                    <label for="remember_me">Remember Me!</label>
+                                </div>
+
+                            </div>
+                            <div class="row d-flex justify-content-center">
+                                <input type="submit" value="Submit" class="btn form-btn-data">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row">
+                        <p>Don't have an account? <a asp-action="Registor">Register Here</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
