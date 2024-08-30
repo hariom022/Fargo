@@ -85,6 +85,67 @@ body {
     }
 
 
+    /************************************ Task code **************************************/
+
+.table thead th {
+    background-color: #d6e3bc;
+}
+
+.order-main-header {
+    background: #888888 !important;
+}
+
+.table tbody .order-subheader {
+    background-color: #e2e3f3;
+}
+
+.table tbody .order-footer {
+    border-top: 1px solid #000;
+}
+
+.table tbody tr {
+    background-color: #f8f9fa;
+}
+
+.table td, .table th {
+    vertical-align: middle;
+    /* text-align: center; */
+    padding: 8px;
+}
+
+.table .order-number {
+    font-weight: bold;
+}
+
+.table .subheader-cell {
+    background: #888888 !important;
+    text-align: left;
+    font-weight: bold;
+}
+
+.table .text-center {
+    text-align: center;
+}
+
+
+.table .text-right {
+    text-align: right;
+}
+
+.group-3d {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.02);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 2px solid #000;
+}
+
+.table-bordered td,
+.table-bordered th {
+    border: 1px solid #dee2e6 !important;
+}
+
+/************************************************************************************************/
+
 
 /*************************************** Login form CSS *********************************/
 .main-form-content {

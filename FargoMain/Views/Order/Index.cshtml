@@ -3,33 +3,49 @@
 }
 
 <script src="~/js/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 
 <script type="text/javascript">
     $(document).ready(function () {
-        debugger
-        $("[id*=btnAddTsk]").click(function () {
-            debugger
+        // Open modal when button is clicked
+        $("#btnAddTsk").click(function () {
             $('#myModal').modal('show');
         });
+
         let rowIndex = 0;
         $("#btnAddTaskInRows").click(function () {
             var TaskCollection = [];
             let TaskItem = {
-                PickupType: $("[id*=PickUpType]").val()
+                PickupType: $("#PickUpType").val(),
+                RequesterName: $("#requesterName").val(),
+                PickupLocation: $("#pickupLocation").val(),
+                VaultLocation: $("#vaultLocation").val(),
+                RecipientName: $("#recipientName").val(),
+                DeliveryLocation: $("#deliveryLocation").val(),
+                PickupTime: $("#pickupTime").val(),
+                DeliveryTime: $("#deliveryTime").val(),
+                NoOfVehicles: $("#noOfVehicles").val()
             };
-            var task = "";
-            task += "<tr>"
-            task += "<td>" + TaskItem.PickupType + " </td>"
-            task += "<td>" + TaskItem.PickupType + " </td>"
-            task += "<td>" + TaskItem.PickupType + " </td>"
-            task += "</tr>";
-            $("#tblAddTask").append(task);
 
+            var task = "";
+            task += "<tr>" +
+                "<td>" + TaskItem.PickupType + "</td>" +
+                "<td>" + TaskItem.RequesterName + "</td>" +
+                "<td>" + TaskItem.PickupLocation + "</td>" +
+                "<td>" + TaskItem.VaultLocation + "</td>" +
+                "<td>" + TaskItem.RecipientName + "</td>" +
+                "<td>" + TaskItem.DeliveryLocation + "</td>" +
+                "<td>" + TaskItem.PickupTime + "</td>" +
+                "<td>" + TaskItem.DeliveryTime + "</td>" +
+                "<td>" + TaskItem.NoOfVehicles + "</td>" +
+                "</tr>";
+
+            $("#tblAddTask tbody").append(task);
             TaskCollection.push(TaskItem);
             console.log(TaskCollection);
         });
     });
-
 </script>
 <div class="task-cart-container">
     <div class="card" style=" border: none !important; padding-bottom:20px">
@@ -156,26 +172,33 @@
                     <div class="d-flex justify-content-end text-end">
                         @*   <button type="submit" class="btn   btn-color">Add Task</button> *@
                         @*  <button class="btn btn-color" id="Add task">Add Task</button> *@
-                        <button type="button" class="btn btn-color" data-bs-toggle="modal" id="btnAddTsk">
+                        <button type="button" class="btn btn-color" data-bs-toggle="modal" id="btnAddTsk" ">
                             Add Task
                         </button>
                     </div>
                     @* </form> *@
                     <div class="row align-items-center ">
-                        <table id="tblAddTask" width="50%" cellpadding="0" cellspacing="0" class="pdzn_tbl1" border="#729111 1px solid">
+                        <table id="btlAddTask" width="50%" cellpadding="0" cellspacing="0" class="pdzn_tbl1" border="#729111 1px solid">
+                            <thead>
                             <tr>
                                 <th>Pickup Type</th>
-                                <th>Product Id</th>
-                                <th>Full Day Occupancy</th>
+                                 <th>Requester's Name</th>
+                                <th>Pickup Location</th>
+                                <th>Vault Location</th>
+                                <th>Recipient's Name</th>
+                                <th>Delivery Location</th>
+                                <th>Pickup Time</th>
+                                <th>Delivery Time</th>
+                                <th>No of Vehicles</th> 
                             </tr>
+                            </thead>
+                            <tbody>
+                                <!-- New rows will be appended here -->
+                            </tbody>
                             <table>
                     </div>
-
                 </div>
-
-
             </div><!-- End Bordered Tabs -->
-
         </div>
     </div>
     <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -187,6 +210,7 @@
                 </div>
                 <div id="modal-content" class="modal-body">
                     <div class="row align-items-center ">
+                        <h6>Pickup Location Section</h6>
                         <div class="col-md-4 col-sm-12 mb-3">
                             <div class="input-group">
                                 <div class="input-group-text">Pickup Type</div>
@@ -198,31 +222,89 @@
                                     <option value="Airlift">Airlift</option>
                                 </select>
                             </div>
-
                         </div>
                         <div class="col-md-4 col-sm-12 mb-3">
-                            <div class="input-group">
-                                <label for="productId" class="input-group-text">Product Id</label>
-                                <input type="number" placeholder="Enter Product Id " class="form-control" id="productId" name="productId" min="1" max="100">
-                            </div>
+                            <select id="requesterName" class="form-select" name="requesterName">
+                                <option value="">Select Requester's Name</option>
+                                <option value="1">John Doe</option>
+                                <option value="2">Jane Smith</option>
+                                <option value="3">Alice Johnson</option>
+                            </select>
                         </div>
-
-                        <!-- Full Day Occupancy Checkbox -->
-                        <div class="col-md-4 col-sm-12 form-check mb-3 fw-bold ">
-                            <input type="checkbox" class="form-check-input text-center" id="fullDayOccupancy" name="fullDayOccupancy">
-                            <label class="form-check-label" for="fullDayOccupancy">Full Day Occupancy</label>
+                        <div class="col-md-4 col-sm-12 mb-3">
+                            <select id="pickupLocation" class="form-select" name="pickupLocation">
+                                <option value="">Select Pickup Location</option>
+                                <option value="loc1">Location 1</option>
+                                <option value="loc2">Location 2</option>
+                                <option value="loc3">Location 3</option>
+                            </select>
                         </div>
                     </div>
-
+                    <div class="row align-items-center">
+                        <h6>Delivery Location Section</h6>
+                        <div class="col-4">
+                            <div class="form-check mb-3 ms-1">
+                                <input type="checkbox" class="form-check-input" id="isVault" name="isVault">
+                                <label class="form-check-label" for="isVault">IsVault</label>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="input-group">
+                                <div class="input-group-text">Vault Location</div>
+                                <select class="form-select" id="vaultLocation" name="vaultLocation">
+                                    <option value="">Select Vault Location</option>
+                                    <option value="Location1">Location 1</option>
+                                    <option value="Location2">Location 2</option>
+                                    <option value="Location3">Location 3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-check mb-3 ms-1" id="isVaultFinalContainer">
+                                <input type="checkbox" class="form-check-input" id="isVaultFinal" name="isVaultFinal">
+                                <label class="form-check-label" for="isVaultFinal">isVault - final destination</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12 mb-3 mt-3">
+                            <select id="recipientName" class="form-select" name="recipientName">
+                                <option value="">Select Recipient's Name</option>
+                                <option value="1">Michael Brown</option>
+                                <option value="2">Emily Davis</option>
+                                <option value="3">Chris Wilson</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 col-sm-12 mb-3 mt-3">
+                            <select id="deliveryLocation" class="form-select" name="deliveryLocation">
+                                <option value="">Select Delivery Location</option>
+                                <option value="locA">Location A</option>
+                                <option value="locB">Location B</option>
+                                <option value="locC">Location C</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 mb-3">
+                            <label for="pickupTime" class="form-label">Pickup Time</label>
+                            <input type="datetime-local" class="form-control" id="pickupTime" name="pickupTime">
+                        </div>
+                        <div class="col-md-6 col-sm-12 mb-3">
+                            <label for="deliveryTime" class="form-label">Delivery Time (optional)</label>
+                            <input type="datetime-local" class="form-control" id="deliveryTime" name="deliveryTime">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 mb-3">
+                            <label for="noOfVehicles" class="form-label">No of Vehicles</label>
+                            <input type="number" placeholder="Enter No of Vehicles" class="form-control" id="noOfVehicles" name="noOfVehicles" min="1" max="100">
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-color" data-bs-dismiss="modal" id="btnAddTaskInRows">Add Task</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-
-                    @*   <button type="button" class="btn btn-primary">Save changes</button> *@
                 </div>
             </div>
         </div>
-
     </div>
+</div>
 

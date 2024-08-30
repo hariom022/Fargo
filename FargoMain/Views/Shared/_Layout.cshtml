@@ -44,6 +44,8 @@
         .modal-body {
             font-size: 1.1rem;
         } */
+
+
     </style>
 
 
@@ -160,7 +162,8 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link px-0 align-middle" data-bs-toggle="nav"
+                                <a asp-action="Index" asp-controller="Calendar"
+                                class="nav-link px-0 align-middle" data-bs-toggle="nav"
                                    role="nav"
                                    aria-selected="false">
                                     <i class="bi bi-calendar-date"></i>
@@ -344,7 +347,25 @@
          const choices3 = new Choices('#recipientName', { searchEnabled: true });
          const choices4 = new Choices('#deliveryLocation', { searchEnabled: true });
     </script>
-  
+
+    @* *****************************Group Button Js*************************************** *@
+
+    <script>
+
+        document.querySelector('.group-button').addEventListener('click', function () {
+            // Remove existing borders
+            document.querySelectorAll('.group-border').forEach(function (row) {
+                row.classList.remove('group-border');
+            });
+
+            // Add border to the group
+            document.querySelectorAll('.row-checkbox:checked').forEach(function (checkbox) {
+                var row = checkbox.closest('tr');
+                row.classList.add('group-3d');
+            });
+        });
+    </script>
+    @* ************************************************************************************ *@
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
