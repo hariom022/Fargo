@@ -1,9 +1,35 @@
-﻿<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
-<script>
-    $('#myModal').modal('show');
+<script src="~/js/jquery.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        debugger
+        $("[id*=btnAddTsk]").click(function () {
+            debugger
+            $('#myModal').modal('show');
+        });
+        let rowIndex = 0;
+        $("#btnAddTaskInRows").click(function () {
+            var TaskCollection = [];
+            let TaskItem = {
+                PickupType: $("[id*=PickUpType]").val()
+            };
+            var task = "";
+            task += "<tr>"
+            task += "<td>" + TaskItem.PickupType + " </td>"
+            task += "<td>" + TaskItem.PickupType + " </td>"
+            task += "<td>" + TaskItem.PickupType + " </td>"
+            task += "</tr>";
+            $("#tblAddTask").append(task);
+
+            TaskCollection.push(TaskItem);
+            console.log(TaskCollection);
+        });
+    });
+
 </script>
 <div class="task-cart-container">
     <div class="card" style=" border: none !important; padding-bottom:20px">
@@ -22,124 +48,181 @@
             </ul>
             <div class="tab-content pt-2 task-tab " id="borderedTabContent" style=" margin-top:2rem;">
                 <div class=" tab-pane fade show active form-container " id="bordered-overview-tab" role="tabpanel" aria-labelledby="overview-tab">
-                    <form>
+                    @*  <form> *@
 
-                        <div class="row align-items-center ">
-                            <!-- OrderType Dropdown -->
-                            <div class="col-md-4 col-sm-12 mb-3">
-                                @* <label for="orderType" class="form-label">Order Type</label> *@
-                                <div class="input-group">
-                                    <div class="input-group-text">Order Type</div>
-                                    <select class="form-select" id="orderType" name="orderType">
-                                        <option value="">Select Order Type</option>
-                                        <option value="1">Type 1</option>
-                                        <option value="2">Type 2</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <!-- No of Vehicles (Number Input) -->
-                            <div class="col-md-4 col-sm-12 mb-3">
-                                <div class="input-group">
-                                    <label for="productId" class="input-group-text">Product Id</label>
-                                    <input type="number" placeholder="Enter Product Id " class="form-control" id="productId" name="productId" min="1" max="100">
-                                </div>
-                            </div>
-
-                            <!-- Full Day Occupancy Checkbox -->
-                            <div class="col-md-4 col-sm-12 form-check mb-3 fw-bold ">
-                                <input type="checkbox" class="form-check-input text-center" id="fullDayOccupancy" name="fullDayOccupancy">
-                                <label class="form-check-label" for="fullDayOccupancy">Full Day Occupancy</label>
+                    <div class="row align-items-center ">
+                        <!-- OrderType Dropdown -->
+                        <div class="col-md-4 col-sm-12 mb-3">
+                            @* <label for="orderType" class="form-label">Order Type</label> *@
+                            <div class="input-group">
+                                <div class="input-group-text">Order Type</div>
+                                <select class="form-select" id="orderType" name="orderType">
+                                    <option value="">Select Order Type</option>
+                                    <option value="1">Type 1</option>
+                                    <option value="2">Type 2</option>
+                                </select>
                             </div>
                         </div>
 
-                        <div class="mt-3">
-                            <h6>Reapting task section</h6>
-                            <!-- Repeat This Task Toggle -->
-                            <div class="form-check form-switch mb-3 fw-bold">
-                                <input class="form-check-input" type="checkbox" id="repeatTask" name="repeatTask">
-                                <label class="form-check-label" for="repeatTask">Repeat this task</label>
+                        <!-- No of Vehicles (Number Input) -->
+                        <div class="col-md-4 col-sm-12 mb-3">
+                            <div class="input-group">
+                                <label for="productId" class="input-group-text">Product Id</label>
+                                <input type="number" placeholder="Enter Product Id " class="form-control" id="productId" name="productId" min="1" max="100">
                             </div>
-
-                            <!-- Repeats Section (Initially Hidden) -->
-                            <div class="row align-items-center repeats-section" id="repeatsSection">
-                                <!-- Repeats Dropdown -->
-                                <div class="col-md-6 col-sm-12 mb-3">
-                                    <div class="input-group">
-                                        <div class="input-group-text">Repeats</div>
-                                        <select class="form-select" id="repeats" name="repeats">
-                                            <option value="">Select Repeats</option>
-                                            <option value="daily">Daily</option>
-                                            <option value="weekly">Weekly</option>
-                                            <option value="monthly">Monthly</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- Ends On Calendar -->
-                                <div class="col-md-6 col-sm-12 mb-3">
-                                    <div class="input-group">
-                                        <div class="input-group-text">Ends on</div>
-                                        <input type="date" class="form-control" id="endsOn" name="endsOn">
-                                    </div>
-                                </div>
-                                <!-- Repeats On Multi-select Dropdown -->
-                                <div class="col-md-12 col-sm-12 mb-3">
-                                    <label for="choices-multiple-remove-button" class="form-label">Repeats On</label>
-                                    <select id="choices-multiple-remove-button" class="form-select" name="options" multiple>
-                                        <option value="Sunday">Sunday</option>
-                                        <option value="Monday">Monday</option>
-                                        <option value="Tuesday">Tuesday</option>
-                                        <option value="Wednesday">Wednesday</option>
-                                        <option value="Thursday">Thursday</option>
-                                        <option value="Friday">Friday</option>
-                                        <option value="Saturday">Saturday</option>
-                                    </select>
-                                </div>
-                            </div>
-
                         </div>
 
-                        <div class="row">
-                            <!-- Pickup Type Dropdown -->
+                        <!-- Full Day Occupancy Checkbox -->
+                        <div class="col-md-4 col-sm-12 form-check mb-3 fw-bold ">
+                            <input type="checkbox" class="form-check-input text-center" id="fullDayOccupancy" name="fullDayOccupancy">
+                            <label class="form-check-label" for="fullDayOccupancy">Full Day Occupancy</label>
+                        </div>
+                    </div>
+
+                    <div class="mt-3">
+                        <h6>Reapting task section</h6>
+                        <!-- Repeat This Task Toggle -->
+                        <div class="form-check form-switch mb-3 fw-bold">
+                            <input class="form-check-input" type="checkbox" id="repeatTask" name="repeatTask">
+                            <label class="form-check-label" for="repeatTask">Repeat this task</label>
+                        </div>
+
+                        <!-- Repeats Section (Initially Hidden) -->
+                        <div class="row align-items-center repeats-section" id="repeatsSection">
+                            <!-- Repeats Dropdown -->
                             <div class="col-md-6 col-sm-12 mb-3">
-                                @* <label for="pickupType" class="form-label">Pickup Type</label> *@
                                 <div class="input-group">
-                                    <div class="input-group-text">Pickup Type</div>
-                                    <select class="form-select" id="pickupType" name="pickupType">
-                                        <option value="">Select Pickup Type</option>
-                                        <option value="curbside">Curbside</option>
-                                        <option value="in-store">In-Store</option>
+                                    <div class="input-group-text">Repeats</div>
+                                    <select class="form-select" id="repeats" name="repeats">
+                                        <option value="">Select Repeats</option>
+                                        <option value="daily">Daily</option>
+                                        <option value="weekly">Weekly</option>
+                                        <option value="monthly">Monthly</option>
                                     </select>
                                 </div>
                             </div>
-                            <!-- Priority Dropdown -->
+                            <!-- Ends On Calendar -->
                             <div class="col-md-6 col-sm-12 mb-3">
-                                @* <label for="priority" class="form-label">Priority</label> *@
                                 <div class="input-group">
-                                    <div class="input-group-text">Priority</div>
-                                    <select class="form-select" id="priority" name="priority">
-                                        <option value="">Select Priority</option>
-                                        <option value="low">Low</option>
-                                        <option value="medium">Medium</option>
-                                        <option value="high">High</option>
-                                    </select>
+                                    <div class="input-group-text">Ends on</div>
+                                    <input type="date" class="form-control" id="endsOn" name="endsOn">
                                 </div>
+                            </div>
+                            <!-- Repeats On Multi-select Dropdown -->
+                            <div class="col-md-12 col-sm-12 mb-3">
+                                <label for="choices-multiple-remove-button" class="form-label">Repeats On</label>
+                                <select id="choices-multiple-remove-button" class="form-select" name="options" multiple>
+                                    <option value="Sunday">Sunday</option>
+                                    <option value="Monday">Monday</option>
+                                    <option value="Tuesday">Tuesday</option>
+                                    <option value="Wednesday">Wednesday</option>
+                                    <option value="Thursday">Thursday</option>
+                                    <option value="Friday">Friday</option>
+                                    <option value="Saturday">Saturday</option>
+                                </select>
                             </div>
                         </div>
 
-                        <div class="d-flex justify-content-end text-end">
-                            @*   <button type="submit" class="btn   btn-color">Add Task</button> *@
-                            <button class="btn btn-color" id="Add task">Add Task</button>
+                    </div>
+
+                    <div class="row">
+                        <!-- Pickup Type Dropdown -->
+                        <div class="col-md-6 col-sm-12 mb-3">
+                            @* <label for="pickupType" class="form-label">Pickup Type</label> *@
+                            <div class="input-group">
+                                <div class="input-group-text">Pickup Type</div>
+                                <select class="form-select" id="pickupType" name="pickupType">
+                                    <option value="">Select Pickup Type</option>
+                                    <option value="curbside">Curbside</option>
+                                    <option value="in-store">In-Store</option>
+                                </select>
+                            </div>
                         </div>
-                    </form>
+                        <!-- Priority Dropdown -->
+                        <div class="col-md-6 col-sm-12 mb-3">
+                            @* <label for="priority" class="form-label">Priority</label> *@
+                            <div class="input-group">
+                                <div class="input-group-text">Priority</div>
+                                <select class="form-select" id="priority" name="priority">
+                                    <option value="">Select Priority</option>
+                                    <option value="low">Low</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="high">High</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-end text-end">
+                        @*   <button type="submit" class="btn   btn-color">Add Task</button> *@
+                        @*  <button class="btn btn-color" id="Add task">Add Task</button> *@
+                        <button type="button" class="btn btn-color" data-bs-toggle="modal" id="btnAddTsk">
+                            Add Task
+                        </button>
+                    </div>
+                    @* </form> *@
+                    <div class="row align-items-center ">
+                        <table id="tblAddTask" width="50%" cellpadding="0" cellspacing="0" class="pdzn_tbl1" border="#729111 1px solid">
+                            <tr>
+                                <th>Pickup Type</th>
+                                <th>Product Id</th>
+                                <th>Full Day Occupancy</th>
+                            </tr>
+                            <table>
+                    </div>
+
                 </div>
-
-
 
 
             </div><!-- End Bordered Tabs -->
 
         </div>
     </div>
-</div>
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel">Modal Title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="modal-content" class="modal-body">
+                    <div class="row align-items-center ">
+                        <div class="col-md-4 col-sm-12 mb-3">
+                            <div class="input-group">
+                                <div class="input-group-text">Pickup Type</div>
+                                <select class="form-select" id="PickUpType" name="PickUpType">
+                                    <option value="">Select Pickup Type</option>
+                                    <option value="CIT">CIT</option>
+                                    <option value="BSS">BSS</option>
+                                    <option value="ATM">ATM</option>
+                                    <option value="Airlift">Airlift</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="col-md-4 col-sm-12 mb-3">
+                            <div class="input-group">
+                                <label for="productId" class="input-group-text">Product Id</label>
+                                <input type="number" placeholder="Enter Product Id " class="form-control" id="productId" name="productId" min="1" max="100">
+                            </div>
+                        </div>
+
+                        <!-- Full Day Occupancy Checkbox -->
+                        <div class="col-md-4 col-sm-12 form-check mb-3 fw-bold ">
+                            <input type="checkbox" class="form-check-input text-center" id="fullDayOccupancy" name="fullDayOccupancy">
+                            <label class="form-check-label" for="fullDayOccupancy">Full Day Occupancy</label>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-color" data-bs-dismiss="modal" id="btnAddTaskInRows">Add Task</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                    @*   <button type="button" class="btn btn-primary">Save changes</button> *@
+                </div>
+            </div>
+        </div>
+
+    </div>
 
