@@ -1,4 +1,5 @@
 ﻿using CITApplication.Interfaces;
+using CITApplication.ViewModels;
 using CITDomain.Model;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,15 +14,16 @@ namespace FargoMain.Controllers
         }
         public IActionResult Index()
         {
+
             return View();
         }
 
         [HttpPost]
-        public IActionResult Index(OrderModel model)
+        public IActionResult CreateOrder([FromBody] OrderModel order)
         {
-            OrderModel ordermodel=new OrderModel();
-            ordermodel = _OrderService.CreateOrder(model);
-            return View(model);
+            var task = _OrderService.CreateOrder(order);
+            var result=task.Result;
+            return View();
         }
     }
 }

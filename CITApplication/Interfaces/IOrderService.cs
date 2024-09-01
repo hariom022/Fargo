@@ -1,4 +1,5 @@
-﻿using CITDomain.Model;
+﻿using CITApplication.ViewModels;
+using CITDomain.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace CITApplication.Interfaces
 {
     public interface IOrderService
     {
-        public OrderModel CreateOrder(OrderModel orderModel);
+         Task<int> CreateOrder(OrderModel orderModel);
     }
 }

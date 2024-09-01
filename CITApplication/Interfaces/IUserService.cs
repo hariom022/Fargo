@@ -9,6 +9,6 @@ namespace CITApplication.Interfaces
 {
     public interface IUserService
     {
-        public Task<UserModel> GetUserDetails(string username);
+        public Task<UserModel> GetUserDetails(string username, string UserEmail);
     }
 }

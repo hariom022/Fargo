@@ -1,4 +1,6 @@
 ﻿using CITApplication.Interfaces;
+using CITApplication.ViewModels;
+using CITDomain.Interfaces;
 using CITDomain.Model;
 using System;
 using System.Collections.Generic;
@@ -10,9 +12,15 @@ namespace CITApplication.Services
 {
     public class OrderService : IOrderService
     {
-        public OrderModel CreateOrder(OrderModel orderModel)
+        public readonly IOrderRepository _IOrderRepository;
+
+        public OrderService(IOrderRepository IOrderrepository)
         {
-            throw new NotImplementedException();
+            _IOrderRepository = IOrderrepository;
+        }
+        public async Task<int> CreateOrder(OrderModel orderModel)
+        {
+            return await _IOrderRepository.CreateOrder(orderModel);       
         }
     }
 }

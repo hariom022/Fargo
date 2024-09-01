@@ -17,10 +17,10 @@ namespace FargoMain.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Index(string username)
+        public async Task<IActionResult> Index(UserModel userModel)
         {
-            UserModel userModel = new UserModel();
-            userModel = await _userService.GetUserDetails(username);
+            UserModel usermodel = new UserModel();
+            usermodel = await _userService.GetUserDetails(userModel.UserName, userModel.EMail);
             return Redirect("/Order/Index");
             //return View();
         }

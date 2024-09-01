@@ -8,6 +8,6 @@ namespace CITApplication.ViewModels
 {
     public class OrderVM
     { 
-
+        public int Result { get; set; }
     }
 }

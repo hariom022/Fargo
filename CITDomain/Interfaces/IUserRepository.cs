@@ -9,6 +9,6 @@ namespace CITDomain.Interfaces
 {
     public interface IUserRepository
     {
-        public Task<UserModel> GetUserDetails(string username);
+        public Task<UserModel> GetUserDetails(string username, string UserEmail);
     }
 }

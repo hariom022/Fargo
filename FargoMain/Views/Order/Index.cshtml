@@ -9,24 +9,26 @@
 <script type="text/javascript">
     $(document).ready(function () {
         // Open modal when button is clicked
-        $("#btnAddTsk").click(function () {
+        var TaskCollection = [];
+        $("[id*=btnAddTsk]").click(function () {
             $('#myModal').modal('show');
         });
 
         let rowIndex = 0;
-        $("#btnAddTaskInRows").click(function () {
-            var TaskCollection = [];
+        $("[id*=btnAddTaskInRows]").click(function () {
             let TaskItem = {
-                PickupType: $("#PickUpType").val(),
-                RequesterName: $("#requesterName").val(),
-                PickupLocation: $("#pickupLocation").val(),
-                VaultLocation: $("#vaultLocation").val(),
-                RecipientName: $("#recipientName").val(),
-                DeliveryLocation: $("#deliveryLocation").val(),
-                PickupTime: $("#pickupTime").val(),
-                DeliveryTime: $("#deliveryTime").val(),
-                NoOfVehicles: $("#noOfVehicles").val()
+                PickupType: $("[id*=PickUpType]").val(),
+                RequesterName: $("[id*=requesterName]").val(),
+                PickupLocation: $("[id*=pickupLocation]").val(),
+                VaultLocation: $("[id*=vaultLocation]").val(),
+                RecipientName: $("[id*=recipientName]").val(),
+                DeliveryLocation: $("[id*=deliveryLocation]").val(),
+                PickupTime: $("[id*=pickupTime]").val(),
+                DeliveryTime: $("[id*=deliveryTime]").val(),
+                NoOfVehicles: $("[id*=noOfVehicles]").val()
             };
+
+            TaskCollection.push(TaskItem);
 
             var task = "";
             task += "<tr>" +
@@ -40,10 +42,32 @@
                 "<td>" + TaskItem.DeliveryTime + "</td>" +
                 "<td>" + TaskItem.NoOfVehicles + "</td>" +
                 "</tr>";
+            $("#btlAddTask tbody").append(task);
 
-            $("#tblAddTask tbody").append(task);
-            TaskCollection.push(TaskItem);
             console.log(TaskCollection);
+        });
+
+        $("[id*=btnSubmit]").click(function () {
+            //console.log(TaskCollection);
+            let OrderModel = {}
+
+            OrderModel = {
+                OrderTypeId: $("[id*=orderType]").val(),
+                Repeats: $("[id*=repeatsMode").val(),
+                taskmodellist: TaskCollection
+            }
+            console.log(OrderModel);
+            $.ajax({
+                type: "POST",
+                url: "/Order/CreateOrder",
+                //data: "{'order':" + JSON.stringify(OrderModel) + "}",
+                data: JSON.stringify(OrderModel),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+
+                }
+            })
         });
     });
 </script>
@@ -51,16 +75,6 @@
     <div class="card" style=" border: none !important; padding-bottom:20px">
         <div class="card-body">
             <h5 class="card-title">Create Order</h5>
-
-            <!-- Bordered Tabs -->
-            @* <ul class="nav nav-tabs nav-tabs-bordered" id="borderedTab" role="tablist">
-            <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="overview-tab" data-bs-toggle="tab" data-bs-target="#bordered-overview-tab" type="button" role="tab" aria-controls="overview-tab" aria-selected="true">Overview </button>
-            </li>
-            <li class="nav-item" role="presentation">
-            <button class="nav-link" id="new-task-tab" data-bs-toggle="tab" data-bs-target="#bordered-new-task-tab" type="button" role="tab" aria-controls="new-task-tab" aria-selected="false">New Task </button>
-            </li> *@
-
             </ul>
             <div class="tab-content pt-2 task-tab " id="borderedTabContent" style=" margin-top:2rem;">
                 <div class=" tab-pane fade show active form-container " id="bordered-overview-tab" role="tabpanel" aria-labelledby="overview-tab">
@@ -69,7 +83,6 @@
                     <div class="row align-items-center ">
                         <!-- OrderType Dropdown -->
                         <div class="col-md-4 col-sm-12 mb-3">
-                            @* <label for="orderType" class="form-label">Order Type</label> *@
                             <div class="input-group">
                                 <div class="input-group-text">Order Type</div>
                                 <select class="form-select" id="orderType" name="orderType">
@@ -80,7 +93,6 @@
                             </div>
                         </div>
 
-                        <!-- No of Vehicles (Number Input) -->
                         <div class="col-md-4 col-sm-12 mb-3">
                             <div class="input-group">
                                 <label for="productId" class="input-group-text">Product Id</label>
@@ -109,7 +121,7 @@
                             <div class="col-md-6 col-sm-12 mb-3">
                                 <div class="input-group">
                                     <div class="input-group-text">Repeats</div>
-                                    <select class="form-select" id="repeats" name="repeats">
+                                    <select class="form-select" id="repeatsMode" name="repeats">
                                         <option value="">Select Repeats</option>
                                         <option value="daily">Daily</option>
                                         <option value="weekly">Weekly</option>
@@ -172,31 +184,35 @@
                     <div class="d-flex justify-content-end text-end">
                         @*   <button type="submit" class="btn   btn-color">Add Task</button> *@
                         @*  <button class="btn btn-color" id="Add task">Add Task</button> *@
-                        <button type="button" class="btn btn-color" data-bs-toggle="modal" id="btnAddTsk" ">
+                        <button type="button" class="btn btn-color" data-bs-toggle="modal" id="btnAddTsk">
                             Add Task
                         </button>
                     </div>
+                    <br>
                     @* </form> *@
                     <div class="row align-items-center ">
                         <table id="btlAddTask" width="50%" cellpadding="0" cellspacing="0" class="pdzn_tbl1" border="#729111 1px solid">
                             <thead>
-                            <tr>
-                                <th>Pickup Type</th>
-                                 <th>Requester's Name</th>
-                                <th>Pickup Location</th>
-                                <th>Vault Location</th>
-                                <th>Recipient's Name</th>
-                                <th>Delivery Location</th>
-                                <th>Pickup Time</th>
-                                <th>Delivery Time</th>
-                                <th>No of Vehicles</th> 
-                            </tr>
+                                <tr>
+                                    <th>Pickup Type</th>
+                                    <th>Requester's Name</th>
+                                    <th>Pickup Location</th>
+                                    <th>Vault Location</th>
+                                    <th>Recipient's Name</th>
+                                    <th>Delivery Location</th>
+                                    <th>Pickup Time</th>
+                                    <th>Delivery Time</th>
+                                    <th>No of Vehicles</th>
+                                </tr>
                             </thead>
                             <tbody>
                                 <!-- New rows will be appended here -->
                             </tbody>
                             <table>
                     </div>
+                    <button type="button" class="btn btn-color" data-bs-toggle="modal" id="btnSubmit">
+                        Submit
+                    </button>
                 </div>
             </div><!-- End Bordered Tabs -->
         </div>
