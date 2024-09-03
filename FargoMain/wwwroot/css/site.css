@@ -8,6 +8,7 @@ html {
     }
 }
 
+
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
     box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #4674ee !important;
 }
@@ -71,11 +72,46 @@ body {
         border-color: #004085;
     }
 
-.btn-color {
-    background-color: #4674ee !important;
-    color: white !important;
+
+
+/****************************************Repeat On MutiSelect input css **********************************/
+
+.input-group.w-100 {
+    width: 100%;
+    display: flex; /* Use flexbox to align items in the same line */
+    align-items: center; /* Align items vertically in the center */
 }
 
+/* Ensure the input group text and form select have consistent height */
+
+/* Adjust the choices container to ensure it doesn't overflow */
+.choices {
+    flex-grow: 1; /* Allow the Choices container to take available space */
+    width: auto !important; /* Prevent it from enforcing 100% width */
+    min-width: 0; /* Prevent minimum width from causing overflow */
+}
+
+/* Ensure the inner choices input fits well within its container */
+.choices__inner {
+    width: 100% !important; /* Ensure the inner container is full width */
+    border-radius: 0 !important; /* Optional: remove rounded corners */
+    min-height: 36px !important; /* Adjust as needed to match input height */
+    padding: 0.375rem 0.75rem; /* Adjust padding for consistency */
+    /*height: 46px !important;*/
+}
+
+/* Optional: Adjust the select element's styling for better fit */
+.input-group .form-select {
+    flex-grow: 1; /* Allow it to grow within the flex container */
+    width: 0; /* Prevent it from having an inherent width */
+    min-width: 0; /* Prevent any minimum width restrictions */
+}
+
+/*.repeats-on-text {
+    height: 46px;
+}*/
+
+/*****************************************************************************************/
 
 
     @media (max-width:668px) {

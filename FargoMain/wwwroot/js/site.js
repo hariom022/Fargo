@@ -55,13 +55,17 @@ document.getElementById('repeatTask').addEventListener('change', function () {
 // Get the elements
 const isVaultCheckbox = document.getElementById('isVault');
 const isVaultFinalContainer = document.getElementById('isVaultFinalContainer');
+//const VaultLocationContainer = document.getElementById('vaultLocationContainer');
 
 // Function to toggle the visibility of isVaultFinal
 function toggleIsVaultFinal() {
     if (isVaultCheckbox.checked) {
         isVaultFinalContainer.style.display = 'block';
+        //VaultLocationContainer.style.display = 'block';
+        
     } else {
         isVaultFinalContainer.style.display = 'none';
+        //VaultLocationContainer.style.display = 'none';
     }
 }
 
