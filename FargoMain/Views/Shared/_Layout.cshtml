@@ -54,17 +54,18 @@
             align-items: center !important;
         }
 
-        .input-group-text {
-            flex-shrink: 0 !important;
-        }
+     
 
         .form-select {
             flex-grow: 1 !important;
         }
        
         .choices__inner{
-            height: 38px !important;
+            height: 20px !important;
+            padding: 0px !important;
         }
+
+      
     </style>
 
 
@@ -367,7 +368,7 @@
 
     @* *****************************Group Button Js*************************************** *@
 
-    <script>
+  @*   <script>
 
 
         document.querySelector('.group-button').addEventListener('click', function () {
@@ -383,7 +384,7 @@
             });
         });
 
-    </script>
+    </script> *@
     @* ************************************************************************************ *@
 
     @await RenderSectionAsync("Scripts", required: false)

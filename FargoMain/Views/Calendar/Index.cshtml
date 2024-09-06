@@ -7,12 +7,12 @@
 
 <div class="tab-container mt-3" style="width: 100% ;" >
     <div class="text-end">
-        <button class="btn btn-primary group-button">Group Button</button>
+        <button class="btn btn-color group-button" data-bs-toggle="modal" data-bs-target="#groupModal" id="groupPopup">Group Button</button>
     </div>
-
+    <div class="" style="overflow-x:auto !important;">
     <table class="table table-bordered mt-3">
-        <thead>
-            <tr>
+            <thead >
+             <tr>
                 <th></th>
                 <th>PickUp</th>
                 <th>Delivery</th>
@@ -27,12 +27,12 @@
         </thead>
         <tbody>
             <!-- Standing Order Header -->
-            <tr class="order-header">
-                <td colspan="10" class="subheader-cell">Standing Order</td>
+            <tr class="order-header" >
+                    <td colspan="10" class="subheader-cell" style="background:#c6d5ed !important; ">Standing Order</td>
             </tr>
 
             <!-- First Order -->
-            <tr class="order-subheader">
+            <tr class="order-subheader" >
                 <td colspan="10" class="standing-order-no">T935265</td>
             </tr>
             <tr class="table-border">
@@ -91,7 +91,7 @@
 
             <!-- Scheduled Order Header -->
             <tr class="order-header">
-                <td colspan="10" class="subheader-cell">Scheduled Order</td>
+                    <td colspan="10" class="subheader-cell" style="background:#c6d5ed !important; ">Scheduled Order</td>
             </tr>
 
 
@@ -145,6 +145,86 @@
             </tr>
         </tbody>
     </table>
-
+    </div>
 </div>
 
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="groupModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg " >
+        <div class="modal-content" >
+            <div class="modal-header" >
+                <h5 class="modal-title" id="groupModalLabel" style="font-size:14px !important">Selected Orders</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
+            </div>
+            <div class="ms-4 mt-4" style="font-size:14px !important">
+                <span>Group Name : </span>
+                <input type="text" placeholder="Enter Group..." style="padding:0px 3px"/>
+            </div>
+            <div class="modal-body" id="modal-content" style="overflow-x:auto">
+                <table class="table table-bordered" style="font-size:14px !important">
+                    <thead>
+                        <tr>
+                            <th>PickUp</th>
+                            <th>Delivery</th>
+                            <th>Recipient</th>
+                           
+                            <th>Time</th>
+                            <th>Status</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody id="selectedOrdersTableBody">
+                        <!-- Selected orders will be added here dynamically -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer d-flex justify-content-between" >
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="font-size:14px !important">Close</button>
+                <a type="button" class="btn btn-color" asp-action="GroupData" style="font-size:14px !important">Save</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.querySelector('.group-button').addEventListener('click', function () {
+        $("[id*=groupPopup]").click(function () {
+            $('#myModal').modal('show');
+        });
+        
+        const selectedOrdersTableBody = document.getElementById('selectedOrdersTableBody');
+        selectedOrdersTableBody.innerHTML = ''; // Clear the table body
+
+        // Gather selected data
+        document.querySelectorAll('.row-checkbox:checked').forEach(function (checkbox) {
+            const row = checkbox.closest('tr');
+            const pickup = row.cells[1].textContent;
+            const delivery = row.cells[2].textContent;
+            const recipient = row.cells[3].textContent;
+          
+            const time = row.cells[7].textContent;
+            const status = row.cells[8].textContent;
+            const type = row.cells[9].textContent;
+
+            // Create table row for each selected row
+            const tableRow = document.createElement('tr');
+            tableRow.innerHTML = `
+                    <td>${pickup}</td>
+                    <td>${delivery}</td>
+                    <td>${recipient}</td>
+                   
+                    <td>${time}</td>
+                    <td>${status}</td>
+                    <td>${type}</td>
+                `;
+            selectedOrdersTableBody.appendChild(tableRow);
+        });
+    });
+</script>
