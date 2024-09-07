@@ -4,80 +4,546 @@
 @{
 }
 
+
+
+
+
+
+
+
 <div class="container mt-3">
-    <div class="d-flex justify-content-end mb-4">
+    <div class="d-flex align-items-center mb-3" style="">
+        <button class="btn btn-color me-4 " data-bs-toggle="modal" data-bs-target="#assignModal">Group Button</button>
         <button class="btn btn-color">Shuffle</button>
     </div>
-    <table class="table table-bordered" >
-        <thead>
-            <tr>
-                <th>Pickup</th>
-                <th>Destination</th>
-                <th>Group</th>
-                <th>Crew Commander</th>
-                <th>Lead Vehicle</th>
-                <th>Chase Vehicle</th>
-            
-            </tr>
-        </thead>
-        <tbody>
-    
-            <tr >
-                <td>Connaught Place, Delhi</td>
-                <td>Chandni Chowk, Delhi</td>
-                <td rowspan="3" >Group1</td>
-                <td rowspan="3"></td>
-                <td rowspan="3"></td>
-                <td rowspan="3"></td>
-            </tr>
-            <tr>
-                <td>Karol Bagh, Delhi</td>
-                <td>Chandni Chowk, Delhi</td>
-              
-            </tr>
-            <tr>
-                <td>MG Road, Bengaluru</td>
-                <td>Koramangala, Bengaluru</td>
+    <div class="" style="overflow-x:auto">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Pickup</th>
+                    <th>Destination</th>
+                    <th>Group</th>
+                    <th>Crew Commander</th>
+                    <th>Lead Vehicle</th>
+                    <th>Chase Vehicle</th>
 
-            </tr>
-   
-            <tr>
-                <td>Indiranagar</td>
-                <td>Jayanagar</td>
-                <td rowspan="3">Group2</td>
-                <td rowspan="3"></td>
-                <td rowspan="3"></td>
-                <td rowspan="3"></td>
-            </tr>
-            <tr>
-                <td>Marine Drive, Mumbai</td>
-                <td>Fort, Mumba</td>
-             
-            </tr>
-            <tr>
-                <td>Salt Lake, Kolkata</td>
-                <td>Howrah, Kolkata</td>
-              
-            </tr>
-            <tr>
-                <td>Anna Nagar, Chennai</td>
-                <td>T Nagar, Chennai</td>
-                <td rowspan="3">Group3</td>
-                <td rowspan="3"></td>
-                <td rowspan="3"></td>
-                <td rowspan="3"></td>
-            </tr>
-            <tr>
-                <td>Sector 18, Noida</td>
-                <td>Sector 62, Noida</td>
-             
-            </tr>
-            <tr>
-                <td>Karol Bagh, Delhi</td>
-                <td>Chandni Chowk, Delhi</td>
-               
-            </tr>
-      
-        </tbody>
-    </table>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>Connaught Place, Delhi</td>
+                    <td>Chandni Chowk, Delhi</td>
+                    <td rowspan="3">Group1</td>
+                    <td rowspan="3"></td>
+                    <td rowspan="3"></td>
+                    <td rowspan="3"></td>
+                </tr>
+                <tr>
+                    <td>Karol Bagh, Delhi</td>
+                    <td>Chandni Chowk, Delhi</td>
+
+                </tr>
+                <tr>
+                    <td>MG Road, Bengaluru</td>
+                    <td>Koramangala, Bengaluru</td>
+
+                </tr>
+
+                <tr>
+                    <td>Indiranagar</td>
+                    <td>Jayanagar</td>
+                    <td rowspan="3">Group2</td>
+                    <td rowspan="3"></td>
+                    <td rowspan="3"></td>
+                    <td rowspan="3"></td>
+                </tr>
+                <tr>
+                    <td>Marine Drive, Mumbai</td>
+                    <td>Fort, Mumba</td>
+
+                </tr>
+                <tr>
+                    <td>Salt Lake, Kolkata</td>
+                    <td>Howrah, Kolkata</td>
+
+                </tr>
+                <tr>
+                    <td>Anna Nagar, Chennai</td>
+                    <td>T Nagar, Chennai</td>
+                    <td rowspan="3">Group3</td>
+                    <td rowspan="3"></td>
+                    <td rowspan="3"></td>
+                    <td rowspan="3"></td>
+                </tr>
+                <tr>
+                    <td>Sector 18, Noida</td>
+                    <td>Sector 62, Noida</td>
+
+                </tr>
+                <tr>
+                    <td>Karol Bagh, Delhi</td>
+                    <td>Chandni Chowk, Delhi</td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
 </div>
+
+
+
+
+<!-- Modal Structure -->
+<div class="modal fade custom-modal-size" id="assignModal" tabindex="-1" aria-labelledby="assignModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <!-- Custom size class applied -->
+        <div class="modal-content">
+            @*  <div class="modal-header">
+
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div> *@
+            <div class="modal-body">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" id="assignTabs" role="tablist">
+                    <li class="nav-item " role="presentation">
+                        <button class="nav-link active" id="leadVehicle-tab" data-bs-toggle="tab" data-bs-target="#leadVehicleDriver-tab" type="button" role="tab" aria-controls="lead" aria-selected="false">
+                            <i class="bi bi-car-front-fill text-dark"></i>
+                            <span class="ms-1 text-dark">
+                                Lead Vehicle 
+                            </span>
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="chaseVehicle-tab" data-bs-toggle="tab" data-bs-target="#chaseVehicleDriver-tab" type="button" role="tab" aria-controls="Chase" aria-selected="false">
+                            <i class="bi bi-truck text-dark"></i> <span class="ms-1 text-dark">Chase vehicle </span>
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="crew-tab" data-bs-toggle="tab" data-bs-target="#crewCommandor-tab" type="button" role="tab" aria-controls="crewCommandor" aria-selected="false">  <i class="bi bi-person-badge-fill text-dark"></i> <span class="ms-1 text-dark">Crew Commander </span> </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="policeData-tab" data-bs-toggle="tab" data-bs-target="#police-tab" type="button" role="tab" aria-controls="police" aria-selected="false">  <i class="bi bi-shield-fill text-dark"></i> <span class="ms-1 text-dark">Police </span> </button>
+                    </li>
+                </ul>
+
+                <!-- Tab content -->
+                <div class="tab-content mt-3">
+                    <div class="tab-pane fade assignment-container show active " id="leadVehicleDriver-tab" role="tabpanel" aria-labelledby="lead-tab">
+                        <h5 style="" class="ps-3 pt-3 ">Select a Lead Vehicle driver to assign tasks:</h5>
+                        <div class=" p-3 ">
+
+                            <div class="form-check  d-flex justify-content-between align-items-center">
+                                <div class=" align-items-center">
+                                    <img src="~/assets/Images/userlogo.jpg" class="rounded-circle" style="width: 30px;"
+                                         alt="Avatar" />
+                                    <input class="form-check-input " type="radio" name="driver" id="driver1" style="    margin-top: 7px;">
+                                    <label class="form-check-label " for="driver1">
+                                        Felix L. Dan
+                                    </label>
+                                </div>
+                             
+                            </div>
+                            <div class="form-check mt-3  d-flex justify-content-between align-items-center">
+                                <div class=" align-items-center">
+                                    <img src="~/assets/Images/userlogo.jpg" class="rounded-circle" style="width: 30px;"
+                                         alt="Avatar" />
+                                    <input class="form-check-input " type="radio" name="driver" id="driver2" style="    margin-top: 7px;">
+                                    <label class="form-check-label " for="driver2">
+                                        Jhon
+                                    </label>
+                                </div>
+                              
+                            </div>
+                            <div class="form-check  d-flex justify-content-between align-items-center">
+                                <div class=" align-items-center">
+                                    <img src="~/assets/Images/userlogo.jpg" class="rounded-circle" style="width: 30px;"
+                                         alt="Avatar" />
+                                    <input class="form-check-input " type="radio" name="driver" id="driver1" style="    margin-top: 7px;">
+                                    <label class="form-check-label " for="driver1">
+                                        Felix L. Dan
+                                    </label>
+                                </div>
+
+                            </div>
+                            <div class="form-check mt-3  d-flex justify-content-between align-items-center">
+                                <div class=" align-items-center">
+                                    <img src="~/assets/Images/userlogo.jpg" class="rounded-circle" style="width: 30px;"
+                                         alt="Avatar" />
+                                    <input class="form-check-input " type="radio" name="driver" id="driver2" style="    margin-top: 7px;">
+                                    <label class="form-check-label " for="driver2">
+                                        Jhon
+                                    </label>
+                                </div>
+
+                            </div>
+                            <div class="form-check  d-flex justify-content-between align-items-center">
+                                <div class=" align-items-center">
+                                    <img src="~/assets/Images/userlogo.jpg" class="rounded-circle" style="width: 30px;"
+                                         alt="Avatar" />
+                                    <input class="form-check-input " type="radio" name="driver" id="driver1" style="    margin-top: 7px;">
+                                    <label class="form-check-label " for="driver1">
+                                        Felix L. Dan
+                                    </label>
+                                </div>
+
+                            </div>
+                            <div class="form-check mt-3  d-flex justify-content-between align-items-center">
+                                <div class=" align-items-center">
+                                    <img src="~/assets/Images/userlogo.jpg" class="rounded-circle" style="width: 30px;"
+                                         alt="Avatar" />
+                                    <input class="form-check-input " type="radio" name="driver" id="driver2" style="    margin-top: 7px;">
+                                    <label class="form-check-label " for="driver2">
+                                        Jhon
+                                    </label>
+                                </div>
+
+                            </div>
+                            <div class="form-check  d-flex justify-content-between align-items-center">
+                                <div class=" align-items-center">
+                                    <img src="~/assets/Images/userlogo.jpg" class="rounded-circle" style="width: 30px;"
+                                         alt="Avatar" />
+                                    <input class="form-check-input " type="radio" name="driver" id="driver1" style="    margin-top: 7px;">
+                                    <label class="form-check-label " for="driver1">
+                                        Felix L. Dan
+                                    </label>
+                                </div>
+
+                            </div>
+                            <div class="form-check mt-3  d-flex justify-content-between align-items-center">
+                                <div class=" align-items-center">
+                                    <img src="~/assets/Images/userlogo.jpg" class="rounded-circle" style="width: 30px;"
+                                         alt="Avatar" />
+                                    <input class="form-check-input " type="radio" name="driver" id="driver2" style="    margin-top: 7px;">
+                                    <label class="form-check-label " for="driver2">
+                                        Jhon
+                                    </label>
+                                </div>
+
+                            </div>
+                            <div class="form-check  d-flex justify-content-between align-items-center">
+                                <div class=" align-items-center">
+                                    <img src="~/assets/Images/userlogo.jpg" class="rounded-circle" style="width: 30px;"
+                                         alt="Avatar" />
+                                    <input class="form-check-input " type="radio" name="driver" id="driver1" style="    margin-top: 7px;">
+                                    <label class="form-check-label " for="driver1">
+                                        Felix L. Dan
+                                    </label>
+                                </div>
+
+                            </div>
+                            <div class="form-check mt-3  d-flex justify-content-between align-items-center">
+                                <div class=" align-items-center">
+                                    <img src="~/assets/Images/userlogo.jpg" class="rounded-circle" style="width: 30px;"
+                                         alt="Avatar" />
+                                    <input class="form-check-input " type="radio" name="driver" id="driver2" style="    margin-top: 7px;">
+                                    <label class="form-check-label " for="driver2">
+                                        Jhon
+                                    </label>
+                                </div>
+
+                            </div>
+                             <div class="form-check  d-flex justify-content-between align-items-center">
+                                <div class=" align-items-center">
+                                    <img src="~/assets/Images/userlogo.jpg" class="rounded-circle" style="width: 30px;"
+                                         alt="Avatar" />
+                                    <input class="form-check-input " type="radio" name="driver" id="driver1" style="    margin-top: 7px;">
+                                    <label class="form-check-label " for="driver1">
+                                        Felix L. Dan
+                                    </label>
+                                </div>
+                             
+                            </div>
+                            <div class="form-check mt-3  d-flex justify-content-between align-items-center">
+                                <div class=" align-items-center">
+                                    <img src="~/assets/Images/userlogo.jpg" class="rounded-circle" style="width: 30px;"
+                                         alt="Avatar" />
+                                    <input class="form-check-input " type="radio" name="driver" id="driver2" style="    margin-top: 7px;">
+                                    <label class="form-check-label " for="driver2">
+                                        Jhon
+                                    </label>
+                                </div>
+                              
+                            </div>
+                            <div class="form-check  d-flex justify-content-between align-items-center">
+                                <div class=" align-items-center">
+                                    <img src="~/assets/Images/userlogo.jpg" class="rounded-circle" style="width: 30px;"
+                                         alt="Avatar" />
+                                    <input class="form-check-input " type="radio" name="driver" id="driver1" style="    margin-top: 7px;">
+                                    <label class="form-check-label " for="driver1">
+                                        Felix L. Dan
+                                    </label>
+                                </div>
+
+                            </div>
+                            <div class="form-check mt-3  d-flex justify-content-between align-items-center">
+                                <div class=" align-items-center">
+                                    <img src="~/assets/Images/userlogo.jpg" class="rounded-circle" style="width: 30px;"
+                                         alt="Avatar" />
+                                    <input class="form-check-input " type="radio" name="driver" id="driver2" style="    margin-top: 7px;">
+                                    <label class="form-check-label " for="driver2">
+                                        Jhon
+                                    </label>
+                                </div>
+
+                            </div>
+                             <div class="form-check  d-flex justify-content-between align-items-center">
+                                <div class=" align-items-center">
+                                    <img src="~/assets/Images/userlogo.jpg" class="rounded-circle" style="width: 30px;"
+                                         alt="Avatar" />
+                                    <input class="form-check-input " type="radio" name="driver" id="driver1" style="    margin-top: 7px;">
+                                    <label class="form-check-label " for="driver1">
+                                        Felix L. Dan
+                                    </label>
+                                </div>
+                             
+                            </div>
+                            <div class="form-check mt-3  d-flex justify-content-between align-items-center">
+                                <div class=" align-items-center">
+                                    <img src="~/assets/Images/userlogo.jpg" class="rounded-circle" style="width: 30px;"
+                                         alt="Avatar" />
+                                    <input class="form-check-input " type="radio" name="driver" id="driver2" style="    margin-top: 7px;">
+                                    <label class="form-check-label " for="driver2">
+                                        Jhon
+                                    </label>
+                                </div>
+                              
+                            </div>
+                             <div class="form-check  d-flex justify-content-between align-items-center">
+                                <div class=" align-items-center">
+                                    <img src="~/assets/Images/userlogo.jpg" class="rounded-circle" style="width: 30px;"
+                                         alt="Avatar" />
+                                    <input class="form-check-input " type="radio" name="driver" id="driver1" style="    margin-top: 7px;">
+                                    <label class="form-check-label " for="driver1">
+                                        Felix L. Dan
+                                    </label>
+                                </div>
+                             
+                            </div>
+                            <div class="form-check mt-3  d-flex justify-content-between align-items-center">
+                                <div class=" align-items-center">
+                                    <img src="~/assets/Images/userlogo.jpg" class="rounded-circle" style="width: 30px;"
+                                         alt="Avatar" />
+                                    <input class="form-check-input " type="radio" name="driver" id="driver2" style="    margin-top: 7px;">
+                                    <label class="form-check-label " for="driver2">
+                                        Jhon
+                                    </label>
+                                </div>
+                              
+                            </div>
+                             <div class="form-check  d-flex justify-content-between align-items-center">
+                                <div class=" align-items-center">
+                                    <img src="~/assets/Images/userlogo.jpg" class="rounded-circle" style="width: 30px;"
+                                         alt="Avatar" />
+                                    <input class="form-check-input " type="radio" name="driver" id="driver1" style="    margin-top: 7px;">
+                                    <label class="form-check-label " for="driver1">
+                                        Felix L. Dan
+                                    </label>
+                                </div>
+                             
+                            </div>
+                            <div class="form-check mt-3  d-flex justify-content-between align-items-center">
+                                <div class=" align-items-center">
+                                    <img src="~/assets/Images/userlogo.jpg" class="rounded-circle" style="width: 30px;"
+                                         alt="Avatar" />
+                                    <input class="form-check-input " type="radio" name="driver" id="driver2" style="    margin-top: 7px;">
+                                    <label class="form-check-label " for="driver2">
+                                        Jhon
+                                    </label>
+                                </div>
+                              
+                            </div>
+                             <div class="form-check  d-flex justify-content-between align-items-center">
+                                <div class=" align-items-center">
+                                    <img src="~/assets/Images/userlogo.jpg" class="rounded-circle" style="width: 30px;"
+                                         alt="Avatar" />
+                                    <input class="form-check-input " type="radio" name="driver" id="driver1" style="    margin-top: 7px;">
+                                    <label class="form-check-label " for="driver1">
+                                        Felix L. Dan
+                                    </label>
+                                </div>
+                             
+                            </div>
+                            <div class="form-check mt-3  d-flex justify-content-between align-items-center">
+                                <div class=" align-items-center">
+                                    <img src="~/assets/Images/userlogo.jpg" class="rounded-circle" style="width: 30px;"
+                                         alt="Avatar" />
+                                    <input class="form-check-input " type="radio" name="driver" id="driver2" style="    margin-top: 7px;">
+                                    <label class="form-check-label " for="driver2">
+                                        Jhon
+                                    </label>
+                                </div>
+                              
+                            </div>
+                             <div class="form-check  d-flex justify-content-between align-items-center">
+                                <div class=" align-items-center">
+                                    <img src="~/assets/Images/userlogo.jpg" class="rounded-circle" style="width: 30px;"
+                                         alt="Avatar" />
+                                    <input class="form-check-input " type="radio" name="driver" id="driver1" style="    margin-top: 7px;">
+                                    <label class="form-check-label " for="driver1">
+                                        Felix L. Dan
+                                    </label>
+                                </div>
+                             
+                            </div>
+                            <div class="form-check mt-3  d-flex justify-content-between align-items-center">
+                                <div class=" align-items-center">
+                                    <img src="~/assets/Images/userlogo.jpg" class="rounded-circle" style="width: 30px;"
+                                         alt="Avatar" />
+                                    <input class="form-check-input " type="radio" name="driver" id="driver2" style="    margin-top: 7px;">
+                                    <label class="form-check-label " for="driver2">
+                                        Jhon
+                                    </label>
+                                </div>
+                              
+                            </div>
+                             <div class="form-check  d-flex justify-content-between align-items-center">
+                                <div class=" align-items-center">
+                                    <img src="~/assets/Images/userlogo.jpg" class="rounded-circle" style="width: 30px;"
+                                         alt="Avatar" />
+                                    <input class="form-check-input " type="radio" name="driver" id="driver1" style="    margin-top: 7px;">
+                                    <label class="form-check-label " for="driver1">
+                                        Felix L. Dan
+                                    </label>
+                                </div>
+                             
+                            </div>
+                            <div class="form-check mt-3  d-flex justify-content-between align-items-center">
+                                <div class=" align-items-center">
+                                    <img src="~/assets/Images/userlogo.jpg" class="rounded-circle" style="width: 30px;"
+                                         alt="Avatar" />
+                                    <input class="form-check-input " type="radio" name="driver" id="driver2" style="    margin-top: 7px;">
+                                    <label class="form-check-label " for="driver2">
+                                        Jhon
+                                    </label>
+                                </div>
+                              
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                    <div class="tab-pane fade assignment-container" id="chaseVehicleDriver-tab" role="tabpanel" aria-labelledby="chase-tab">
+                        <h5 style="" class="ps-3 ">Select a Chase vehicle Driver to assign tasks:</h5>
+                        <div class=" p-3 ">
+                            <div class="form-check  d-flex justify-content-between align-items-center">
+                                <div class=" align-items-center">
+                                    <img src="~/assets/Images/userlogo.jpg" class="rounded-circle" style="width: 30px;"
+                                         alt="Avatar" />
+                                    <input class="form-check-input " type="radio" name="driver" id="driver1" style="    margin-top: 7px;">
+                                    <label class="form-check-label " for="driver1">
+                                        Felix L. Dan
+                                    </label>
+                                </div>
+
+                            </div>
+                            <div class="form-check mt-3  d-flex justify-content-between align-items-center">
+                                <div class=" align-items-center">
+                                    <img src="~/assets/Images/userlogo.jpg" class="rounded-circle" style="width: 30px;"
+                                         alt="Avatar" />
+                                    <input class="form-check-input " type="radio" name="driver" id="driver2" style="    margin-top: 7px;">
+                                    <label class="form-check-label " for="driver2">
+                                        Jhon
+                                    </label>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade assignment-container" id="crewCommandor-tab" role="tabpanel" aria-labelledby="crew-tab">
+                        <h5 style="" class="ps-3 ">Select a  Crew Commander to assign tasks:</h5>
+                        <div class=" p-3 ">
+                            <div class="form-check  d-flex justify-content-between align-items-center">
+                                <div class=" align-items-center">
+                                    <img src="~/assets/Images/userlogo.jpg" class="rounded-circle" style="width: 30px;"
+                                         alt="Avatar" />
+                                    <input class="form-check-input " type="radio" name="driver" id="driver1" style="    margin-top: 7px;">
+                                    <label class="form-check-label " for="driver1">
+                                        Felix L. Dan
+                                    </label>
+                                </div>
+                                @*      <div class="d-flex align-items-center">
+                                <div class="progress mt-1" style=" width: 155px;" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar" style="width: 25%"></div>
+                                </div>
+                                <label class="ms-3"> (14 / 20 )</label>
+                                </div> *@
+                            </div>
+                            <div class="form-check mt-3  d-flex justify-content-between align-items-center">
+                                <div class=" align-items-center">
+                                    <img src="~/assets/Images/userlogo.jpg" class="rounded-circle" style="width: 30px;"
+                                         alt="Avatar" />
+                                    <input class="form-check-input " type="radio" name="driver" id="driver2" style="    margin-top: 7px;">
+                                    <label class="form-check-label " for="driver2">
+                                        Jhon
+                                    </label>
+                                </div>
+                                @*   <div class="d-flex align-items-center">
+                                <div class="progress mt-1" style=" width: 155px;" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar" style="width: 10%"></div>
+                                </div>
+                                <label class="ms-3"> (16 / 80 )</label>
+                                </div> *@
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="tab-pane fade assignment-container" id="police-tab" role="tabpanel" aria-labelledby="policeData-tab">
+                        <h5 style="" class="ps-3 ">  Police to assign tasks:</h5>
+                        <div class=" p-3 ">
+                            <div class="form-check  d-flex justify-content-between align-items-center">
+                                <div class=" align-items-center">
+                                    <img src="~/assets/Images/userlogo.jpg" class="rounded-circle" style="width: 30px;"
+                                         alt="Avatar" />
+                                    <input class="form-check-input " type="radio" name="driver" id="driver1" style="    margin-top: 7px;">
+                                    <label class="form-check-label " for="driver1">
+                                        Felix L. Dan
+                                    </label>
+                                </div>
+                                @*  <div class="d-flex align-items-center">
+                                <div class="progress mt-1" style=" width: 155px;" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar" style="width: 25%"></div>
+                                </div>
+                                <label class="ms-3"> (14 / 20 )</label>
+                                </div> *@
+                            </div>
+                            <div class="form-check mt-3  d-flex justify-content-between align-items-center">
+                                <div class=" align-items-center">
+                                    <img src="~/assets/Images/userlogo.jpg" class="rounded-circle" style="width: 30px;"
+                                         alt="Avatar" />
+                                    <input class="form-check-input " type="radio" name="driver" id="driver2" style="    margin-top: 7px;">
+                                    <label class="form-check-label " for="driver2">
+                                        Jhon
+                                    </label>
+                                </div>
+                                @*  <div class="d-flex align-items-center">
+                                <div class="progress mt-1" style=" width: 155px;" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar" style="width: 10%"></div>
+                                </div>
+                                <label class="ms-3"> (16 / 80 )</label>
+                                </div> *@
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer d-flex justify-content-between">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-color">Assign</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+

@@ -85,7 +85,7 @@
                         <div class="col-md-4 col-sm-12 mb-3">
                             <div class="input-group">
                                 <div class="input-group-text"><i class="bi bi-file-text-fill"></i></div>
-                                <select class="form-select" id="orderType" name="orderType">
+                                <select class="form-select small-input " id="orderType" name="orderType">
                                     <option value="">Select Order Type</option>
                                     <option value="1">Type 1</option>
                                     <option value="2">Type 2</option>
@@ -97,7 +97,7 @@
                             @* <label for="priority" class="form-label">Priority</label> *@
                             <div class="input-group">
                                 <div class="input-group-text">Priority</div>
-                                <select class="form-select" id="priority" name="priority">
+                                <select class="form-select small-input " id="priority" name="priority">
                                     <option value="">Select Priority</option>
                                     <option value="low">Low</option>
                                     <option value="medium">Medium</option>
@@ -109,7 +109,7 @@
                         <div class="col-md-4 col-sm-12 mb-3">
                             <div class="input-group">
                                 <div class="input-group-text"><i class="bi bi-credit-card-2-front-fill"></i></div>
-                                <input type="number" placeholder="Enter Order Id" class="form-control" id="OrderId" name="OrderId" min="1" max="100">
+                                <input type="number" placeholder="Enter Order Id" class="form-control small-input " id="OrderId" name="OrderId" min="1" max="100">
                             </div>
                         </div>
 
@@ -135,7 +135,7 @@
                             <div class="col-md-6 col-sm-12 mb-3">
                                 <div class="input-group w-100">
                                     <div class="input-group-text">Repeats</div>
-                                    <select class="form-select" id="repeatsMode" name="repeats">
+                                    <select class="form-select small-input " id="repeatsMode" name="repeats">
                                         <option value="">Select Repeats</option>
                                         <option value="daily">Daily</option>
                                         <option value="weekly">Weekly</option>
@@ -147,7 +147,7 @@
                             <div class="col-md-6 col-sm-12 mb-3">
                                 <div class="input-group">
                                     <div class="input-group-text">Ends on</div>
-                                    <input type="date" class="form-control" id="endsOn" name="endsOn">
+                                    <input type="date" class="form-control small-input " id="endsOn" name="endsOn">
                                 </div>
                             </div>
                             <!-- Repeats On Multi-select Dropdown -->
@@ -156,7 +156,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text repeats-on-text">Repeats On</span>
                                     </div>
-                                    <select id="choices-multiple-remove-button" class="form-select" name="options" multiple>
+                                    <select id="choices-multiple-remove-button" class="form-select small-input " name="options" multiple>
                                         <option value="Sunday">Sunday</option>
                                         <option value="Monday">Monday</option>
                                         <option value="Tuesday">Tuesday</option>
@@ -225,7 +225,7 @@
                         <div class="col-md-12 col-sm-12 mb-3">
                             <div class="input-group">
                                 <div class="input-group-text"> <i class="bi bi-clipboard-fill"></i></div>
-                                <select class="form-select" id="PickUpType" name="PickUpType">
+                                <select class="form-select small-input " id="PickUpType" name="PickUpType">
                                     <option value="">Select Pickup Type</option>
                                     <option value="CIT">CIT</option>
                                     <option value="BSS">BSS</option>
@@ -243,7 +243,7 @@
                                 <div class="input-group-text">
                                     <i class="bi bi-person-fill"></i> <!-- Replace with an appropriate icon for "Requester" -->
                                 </div>
-                                <select id="requesterName" class="form-select" name="requesterName">
+                                <select id="requesterName" class="form-select small-input " name="requesterName">
                                     <option value="">Select Requester's Name</option>
                                     <option value="John Doe">John Doe</option>
                                     <option value="Jane Smith">Jane Smith</option>
@@ -256,7 +256,7 @@
                                 <div class="input-group-text">
                                     <i class="bi bi-geo-alt-fill"></i> <!-- Replace with an appropriate icon for "Location" -->
                                 </div>
-                                <select id="pickupLocation" class="form-select" name="pickupLocation">
+                                <select id="pickupLocation" class="form-select small-input " name="pickupLocation">
                                     <option value="">Select Pickup Location</option>
                                     <option value="loc1">Location 1</option>
                                     <option value="loc2">Location 2</option>
@@ -277,7 +277,7 @@
                                     <div class="input-group-text">
                                         <i class="bi bi-geo-alt-fill"></i> <!-- Replace with an appropriate icon for "Location" -->
                                     </div>
-                                    <select id="vaultLocation" class="form-select" name="vaultLocation">
+                                    <select id="vaultLocation" class="form-select small-input " name="vaultLocation">
                                         <option value="">Select Vault Location</option>
                                         <option value="loc1">Location 1</option>
                                         <option value="loc2">Location 2</option>
@@ -296,7 +296,7 @@
                                     <div class="input-group-text">
                                         <i class="bi bi-person-fill"></i>  <!-- Replace with an appropriate icon for "Recipient" -->
                                     </div>
-                                    <select id="recipientName" class="form-select" name="recipientName">
+                                    <select id="recipientName" class="form-select small-input " name="recipientName">
                                         <option value="">Select Recipient's Name</option>
                                         <option value="1">Michael Brown</option>
                                         <option value="2">Emily Davis</option>
@@ -309,7 +309,7 @@
                                     <div class="input-group-text">
                                         <i class="bi bi-geo-fill"></i> <!-- Replace with an appropriate icon for "Delivery Location" -->
                                     </div>
-                                    <select id="deliveryLocation" class="form-select" name="deliveryLocation">
+                                    <select id="deliveryLocation" class="form-select small-input " name="deliveryLocation">
                                         <option value="">Select Delivery Location</option>
                                         <option value="locA">Location A</option>
                                         <option value="locB">Location B</option>
@@ -326,7 +326,7 @@
                                     <div class="input-group-text">
                                         <i class="bi bi-clock-fill"></i> <!-- Replace with an appropriate icon for "Delivery Time" -->
                                     </div>
-                                    <input type="datetime-local" class="form-control" id="pickupTime" name="pickupTime">
+                                    <input type="datetime-local" class="form-control small-input " id="pickupTime" name="pickupTime">
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-12 mb-3">
@@ -335,7 +335,7 @@
                                     <div class="input-group-text">
                                         <i class="bi bi-clock-fill"></i> <!-- Replace with an appropriate icon for "Delivery Time" -->
                                     </div>
-                                    <input type="datetime-local" class="form-control" id="deliveryTime" name="deliveryTime">
+                                    <input type="datetime-local" class="form-control small-input " id="deliveryTime" name="deliveryTime">
                                 </div>
                             </div>
                         </div>
@@ -345,7 +345,7 @@
                                     <div class="input-group-text">
                                         <i class="bi bi-truck-front-fill"></i> <!-- Replace with an appropriate icon for "No of Vehicles" -->
                                     </div>
-                                    <input type="number" placeholder="Enter No of Vehicles" class="form-control" id="noOfVehicles" name="noOfVehicles" min="1" max="100">
+                                    <input type="number" placeholder="Enter No of Vehicles" class="form-control small-input " id="noOfVehicles" name="noOfVehicles" min="1" max="100">
                                 </div>
                             </div>
                         </div>

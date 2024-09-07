@@ -1,10 +1,10 @@
 html {
-    font-size: 14px;
+    font-size: 12px;
 }
 
 @media (min-width: 768px) {
     html {
-        font-size: 16px;
+        font-size: 12px;
     }
 }
 
@@ -20,8 +20,11 @@ html {
 
 body {
     margin-bottom: 60px;
+    /*font-size:14px !important;*/
 }
-
+button {
+    font-size: 14px !important;
+}
 /*.choices .choices__input {
     padding: 10px !important;
 }*/
@@ -72,11 +75,11 @@ body {
 /******************************************Dashboard Task button  *************************************/
 
 .new-task-dashboard-data .form-select {
-    font-size: 15px !important;
+    font-size: 12px !important;
 }
 
 .new-task-dashboard-data .input-group-text {
-    font-size: 15px !important;
+    font-size: 12px !important;
 }
 
 .new-task-dashboard-data .input-group-text {
@@ -166,8 +169,8 @@ body {
     /************************************ Task code **************************************/
 
 .table thead th {
-    background-color: #E7EFFC !important;
-    
+    background-color: #f2f0f0 !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Horizontal, Vertical, Blur, Color */
 }
 
 .order-main-header {
@@ -224,6 +227,18 @@ body {
 }
 
 /************************************************************************************************/
+
+/******************************************Group Data Section*************************************************/
+
+.group-data-action-container a{
+    text-decoration:none;
+    color:black;
+}
+
+
+/***********************************************************************************************************/
+
+
 
 
 /*************************************** Login form CSS *********************************/
