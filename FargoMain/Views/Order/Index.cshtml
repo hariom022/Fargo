@@ -84,31 +84,45 @@
                         <!-- OrderType Dropdown -->
                         <div class="col-md-4 col-sm-12 mb-3">
                             <div class="input-group">
-                                <div class="input-group-text">Order Type</div>
-                                <select class="form-select" id="orderType" name="orderType">
+                                <div class="input-group-text"><i class="bi bi-file-text-fill"></i></div>
+                                <select class="form-select small-input " id="orderType" name="orderType">
                                     <option value="">Select Order Type</option>
                                     <option value="1">Type 1</option>
                                     <option value="2">Type 2</option>
                                 </select>
                             </div>
                         </div>
-
+                        <!-- Priority Dropdown -->
                         <div class="col-md-4 col-sm-12 mb-3">
+                            @* <label for="priority" class="form-label">Priority</label> *@
                             <div class="input-group">
-                                <label for="productId" class="input-group-text">Product Id</label>
-                                <input type="number" placeholder="Enter Product Id " class="form-control" id="productId" name="productId" min="1" max="100">
+                                <div class="input-group-text">Priority</div>
+                                <select class="form-select small-input " id="priority" name="priority">
+                                    <option value="">Select Priority</option>
+                                    <option value="low">Low</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="high">High</option>
+                                </select>
                             </div>
                         </div>
 
+                        <div class="col-md-4 col-sm-12 mb-3">
+                            <div class="input-group">
+                                <div class="input-group-text"><i class="bi bi-credit-card-2-front-fill"></i></div>
+                                <input type="number" placeholder="Enter Order Id" class="form-control small-input " id="OrderId" name="OrderId" min="1" max="100">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
                         <!-- Full Day Occupancy Checkbox -->
-                        <div class="col-md-4 col-sm-12 form-check mb-3 fw-bold ">
+                        <div class="col-md-4 col-sm-12 form-check ms-3 mb-3 fw-bold ">
                             <input type="checkbox" class="form-check-input text-center" id="fullDayOccupancy" name="fullDayOccupancy">
                             <label class="form-check-label" for="fullDayOccupancy">Full Day Occupancy</label>
                         </div>
                     </div>
-
                     <div class="mt-3">
-                        <h6>Reapting task section</h6>
+                        <h6>Repeating task section</h6>
                         <!-- Repeat This Task Toggle -->
                         <div class="form-check form-switch mb-3 fw-bold">
                             <input class="form-check-input" type="checkbox" id="repeatTask" name="repeatTask">
@@ -119,9 +133,9 @@
                         <div class="row align-items-center repeats-section" id="repeatsSection">
                             <!-- Repeats Dropdown -->
                             <div class="col-md-6 col-sm-12 mb-3">
-                                <div class="input-group">
+                                <div class="input-group w-100">
                                     <div class="input-group-text">Repeats</div>
-                                    <select class="form-select" id="repeatsMode" name="repeats">
+                                    <select class="form-select small-input " id="repeatsMode" name="repeats">
                                         <option value="">Select Repeats</option>
                                         <option value="daily">Daily</option>
                                         <option value="weekly">Weekly</option>
@@ -133,52 +147,28 @@
                             <div class="col-md-6 col-sm-12 mb-3">
                                 <div class="input-group">
                                     <div class="input-group-text">Ends on</div>
-                                    <input type="date" class="form-control" id="endsOn" name="endsOn">
+                                    <input type="date" class="form-control small-input " id="endsOn" name="endsOn">
                                 </div>
                             </div>
                             <!-- Repeats On Multi-select Dropdown -->
                             <div class="col-md-12 col-sm-12 mb-3">
-                                <label for="choices-multiple-remove-button" class="form-label">Repeats On</label>
-                                <select id="choices-multiple-remove-button" class="form-select" name="options" multiple>
-                                    <option value="Sunday">Sunday</option>
-                                    <option value="Monday">Monday</option>
-                                    <option value="Tuesday">Tuesday</option>
-                                    <option value="Wednesday">Wednesday</option>
-                                    <option value="Thursday">Thursday</option>
-                                    <option value="Friday">Friday</option>
-                                    <option value="Saturday">Saturday</option>
-                                </select>
+                                <div class="input-group w-100">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text repeats-on-text">Repeats On</span>
+                                    </div>
+                                    <select id="choices-multiple-remove-button" class="form-select small-input " name="options" multiple>
+                                        <option value="Sunday">Sunday</option>
+                                        <option value="Monday">Monday</option>
+                                        <option value="Tuesday">Tuesday</option>
+                                        <option value="Wednesday">Wednesday</option>
+                                        <option value="Thursday">Thursday</option>
+                                        <option value="Friday">Friday</option>
+                                        <option value="Saturday">Saturday</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
 
-                    </div>
-
-                    <div class="row">
-                        <!-- Pickup Type Dropdown -->
-                        <div class="col-md-6 col-sm-12 mb-3">
-                            @* <label for="pickupType" class="form-label">Pickup Type</label> *@
-                            <div class="input-group">
-                                <div class="input-group-text">Pickup Type</div>
-                                <select class="form-select" id="pickupType" name="pickupType">
-                                    <option value="">Select Pickup Type</option>
-                                    <option value="curbside">Curbside</option>
-                                    <option value="in-store">In-Store</option>
-                                </select>
-                            </div>
-                        </div>
-                        <!-- Priority Dropdown -->
-                        <div class="col-md-6 col-sm-12 mb-3">
-                            @* <label for="priority" class="form-label">Priority</label> *@
-                            <div class="input-group">
-                                <div class="input-group-text">Priority</div>
-                                <select class="form-select" id="priority" name="priority">
-                                    <option value="">Select Priority</option>
-                                    <option value="low">Low</option>
-                                    <option value="medium">Medium</option>
-                                    <option value="high">High</option>
-                                </select>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="d-flex justify-content-end text-end">
@@ -191,7 +181,7 @@
                     <br>
                     @* </form> *@
                     <div class="row align-items-center ">
-                        <table id="btlAddTask" width="50%" cellpadding="0" cellspacing="0" class="pdzn_tbl1" border="#729111 1px solid">
+                        <table id="btlAddTask" width="50%" cellpadding="0" cellspacing="0" class="pdzn_tbl1 table table-bordered" border="#729111 1px solid">
                             <thead>
                                 <tr>
                                     <th>Pickup Type</th>
@@ -210,13 +200,19 @@
                             </tbody>
                             <table>
                     </div>
-                    <button type="button" class="btn btn-color" data-bs-toggle="modal" id="btnSubmit">
-                        Submit
-                    </button>
+                    <div class="d-flex" style="display:flex;justify-content:end">
+                        <button type="button" class="btn btn-color" data-bs-toggle="modal" id="btnSubmit">
+                            Submit
+                        </button>
+                    </div>
+
                 </div>
             </div><!-- End Bordered Tabs -->
         </div>
     </div>
+
+
+
     <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -225,12 +221,11 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div id="modal-content" class="modal-body">
-                    <div class="row align-items-center ">
-                        <h6>Pickup Location Section</h6>
-                        <div class="col-md-4 col-sm-12 mb-3">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 mb-3">
                             <div class="input-group">
-                                <div class="input-group-text">Pickup Type</div>
-                                <select class="form-select" id="PickUpType" name="PickUpType">
+                                <div class="input-group-text"> <i class="bi bi-clipboard-fill"></i></div>
+                                <select class="form-select small-input " id="PickUpType" name="PickUpType">
                                     <option value="">Select Pickup Type</option>
                                     <option value="CIT">CIT</option>
                                     <option value="BSS">BSS</option>
@@ -239,88 +234,128 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-12 mb-3">
-                            <select id="requesterName" class="form-select" name="requesterName">
-                                <option value="">Select Requester's Name</option>
-                                <option value="1">John Doe</option>
-                                <option value="2">Jane Smith</option>
-                                <option value="3">Alice Johnson</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4 col-sm-12 mb-3">
-                            <select id="pickupLocation" class="form-select" name="pickupLocation">
-                                <option value="">Select Pickup Location</option>
-                                <option value="loc1">Location 1</option>
-                                <option value="loc2">Location 2</option>
-                                <option value="loc3">Location 3</option>
-                            </select>
-                        </div>
                     </div>
-                    <div class="row align-items-center">
-                        <h6>Delivery Location Section</h6>
-                        <div class="col-4">
-                            <div class="form-check mb-3 ms-1">
-                                <input type="checkbox" class="form-check-input" id="isVault" name="isVault">
-                                <label class="form-check-label" for="isVault">IsVault</label>
-                            </div>
-                        </div>
-                        <div class="col-4">
+                    <div class="row align-items-center ">
+                        <h6>Sender / Pickup Location</h6>
+
+                        <div class="col-md-6 col-sm-12 mb-3">
                             <div class="input-group">
-                                <div class="input-group-text">Vault Location</div>
-                                <select class="form-select" id="vaultLocation" name="vaultLocation">
-                                    <option value="">Select Vault Location</option>
-                                    <option value="Location1">Location 1</option>
-                                    <option value="Location2">Location 2</option>
-                                    <option value="Location3">Location 3</option>
+                                <div class="input-group-text">
+                                    <i class="bi bi-person-fill"></i> <!-- Replace with an appropriate icon for "Requester" -->
+                                </div>
+                                <select id="requesterName" class="form-select small-input " name="requesterName">
+                                    <option value="">Select Requester's Name</option>
+                                    <option value="John Doe">John Doe</option>
+                                    <option value="Jane Smith">Jane Smith</option>
+                                    <option value="Alice Johnson">Alice Johnson</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="col-4">
-                            <div class="form-check mb-3 ms-1" id="isVaultFinalContainer">
-                                <input type="checkbox" class="form-check-input" id="isVaultFinal" name="isVaultFinal">
-                                <label class="form-check-label" for="isVaultFinal">isVault - final destination</label>
+                        <div class="col-md-6 col-sm-12 mb-3">
+                            <div class="input-group">
+                                <div class="input-group-text">
+                                    <i class="bi bi-geo-alt-fill"></i> <!-- Replace with an appropriate icon for "Location" -->
+                                </div>
+                                <select id="pickupLocation" class="form-select small-input " name="pickupLocation">
+                                    <option value="">Select Pickup Location</option>
+                                    <option value="loc1">Location 1</option>
+                                    <option value="loc2">Location 2</option>
+                                    <option value="loc3">Location 3</option>
+                                </select>
                             </div>
                         </div>
-                        <div class="col-md-6 col-sm-12 mb-3 mt-3">
-                            <select id="recipientName" class="form-select" name="recipientName">
-                                <option value="">Select Recipient's Name</option>
-                                <option value="1">Michael Brown</option>
-                                <option value="2">Emily Davis</option>
-                                <option value="3">Chris Wilson</option>
-                            </select>
+                        <div class="row align-items-center mt-4">
+                            <h6>Recipient / Destination Location</h6>
+                            <div class="col-3">
+                                <div class="form-check  ms-1">
+                                    <input type="checkbox" class="form-check-input" id="isVault" name="isVault">
+                                    <label class="form-check-label" for="isVault">IsVault</label>
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-sm-12  ">
+                                <div class="input-group">
+                                    <div class="input-group-text">
+                                        <i class="bi bi-geo-alt-fill"></i> <!-- Replace with an appropriate icon for "Location" -->
+                                    </div>
+                                    <select id="vaultLocation" class="form-select small-input " name="vaultLocation">
+                                        <option value="">Select Vault Location</option>
+                                        <option value="loc1">Location 1</option>
+                                        <option value="loc2">Location 2</option>
+                                        <option value="loc3">Location 3</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-check  ms-1" id="isVaultFinalContainer">
+                                    <input type="checkbox" class="form-check-input" id="isVaultFinal" name="isVaultFinal">
+                                    <label class="form-check-label" for="isVaultFinal">isVault - final destination</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12 mb-3 mt-3">
+                                <div class="input-group">
+                                    <div class="input-group-text">
+                                        <i class="bi bi-person-fill"></i>  <!-- Replace with an appropriate icon for "Recipient" -->
+                                    </div>
+                                    <select id="recipientName" class="form-select small-input " name="recipientName">
+                                        <option value="">Select Recipient's Name</option>
+                                        <option value="1">Michael Brown</option>
+                                        <option value="2">Emily Davis</option>
+                                        <option value="3">Chris Wilson</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12 mb-3 mt-3">
+                                <div class="input-group">
+                                    <div class="input-group-text">
+                                        <i class="bi bi-geo-fill"></i> <!-- Replace with an appropriate icon for "Delivery Location" -->
+                                    </div>
+                                    <select id="deliveryLocation" class="form-select small-input " name="deliveryLocation">
+                                        <option value="">Select Delivery Location</option>
+                                        <option value="locA">Location A</option>
+                                        <option value="locB">Location B</option>
+                                        <option value="locC">Location C</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-6 col-sm-12 mb-3 mt-3">
-                            <select id="deliveryLocation" class="form-select" name="deliveryLocation">
-                                <option value="">Select Delivery Location</option>
-                                <option value="locA">Location A</option>
-                                <option value="locB">Location B</option>
-                                <option value="locC">Location C</option>
-                            </select>
+                        <div class="row mt-4">
+
+                            <div class="col-md-6 col-sm-12 mb-3">
+                                <label for="pickupTime" class="form-label">Pickup Time</label>
+                                <div class="input-group">
+                                    <div class="input-group-text">
+                                        <i class="bi bi-clock-fill"></i> <!-- Replace with an appropriate icon for "Delivery Time" -->
+                                    </div>
+                                    <input type="datetime-local" class="form-control small-input " id="pickupTime" name="pickupTime">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12 mb-3">
+                                <label for="deliveryTime" class="form-label">Delivery Time (optional)</label>
+                                <div class="input-group">
+                                    <div class="input-group-text">
+                                        <i class="bi bi-clock-fill"></i> <!-- Replace with an appropriate icon for "Delivery Time" -->
+                                    </div>
+                                    <input type="datetime-local" class="form-control small-input " id="deliveryTime" name="deliveryTime">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12 mb-3">
+                                <div class="input-group">
+                                    <div class="input-group-text">
+                                        <i class="bi bi-truck-front-fill"></i> <!-- Replace with an appropriate icon for "No of Vehicles" -->
+                                    </div>
+                                    <input type="number" placeholder="Enter No of Vehicles" class="form-control small-input " id="noOfVehicles" name="noOfVehicles" min="1" max="100">
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-12 mb-3">
-                            <label for="pickupTime" class="form-label">Pickup Time</label>
-                            <input type="datetime-local" class="form-control" id="pickupTime" name="pickupTime">
-                        </div>
-                        <div class="col-md-6 col-sm-12 mb-3">
-                            <label for="deliveryTime" class="form-label">Delivery Time (optional)</label>
-                            <input type="datetime-local" class="form-control" id="deliveryTime" name="deliveryTime">
-                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-color" data-bs-dismiss="modal" id="btnAddTaskInRows" style="background:#132553 !important;">Add Task</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-12 mb-3">
-                            <label for="noOfVehicles" class="form-label">No of Vehicles</label>
-                            <input type="number" placeholder="Enter No of Vehicles" class="form-control" id="noOfVehicles" name="noOfVehicles" min="1" max="100">
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-color" data-bs-dismiss="modal" id="btnAddTaskInRows">Add Task</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
-</div>
 

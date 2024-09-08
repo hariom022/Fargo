@@ -36,6 +36,10 @@
             display: none;
         }
 
+        .btn-color {
+            background: #132553 !important;
+            color: white !important;
+        }
 
       /*   .modal-title {
             color: #007bff;
@@ -45,7 +49,58 @@
             font-size: 1.1rem;
         } */
 
+        .input-group {
+            display: flex !important;
+            align-items: center !important;
+        }
 
+        table{
+            font-size:12px !important;
+        }
+        button{
+            font-size:12px !important;
+        }
+     
+        /* *************************************************** Order task css ************************ */
+        .form-select {
+            flex-grow: 1 !important;
+            font-size: 12px !important;
+        }
+       
+        .choices__inner{
+            height: 20px !important;
+            padding: 0px !important;
+        }
+
+        .input-group-text{
+            font-size:12px !important;
+        }
+
+        .choices__inner {
+            min-height: 30px !importan; /* Match the height with the input */
+            font-size: 12px !importan; /* Match font size */
+            padding: 2px 8px !importan;
+        }
+
+        .choices__list--single .choices__item {
+            font-size: 12px !importan; /* Adjust font size of the selected item */
+        }
+
+        .choices__input {
+            height: 28px !important; /* Reduce height of search input */
+            font-size: 12px !important; /* Reduce font size in the search input */
+        }
+
+        .choices {
+            height: 30px !important;
+            border: 1px solid #eee4e4;
+        }
+      /* ************************************************************************************************** */
+
+  
+       .form-check-input {
+            border: 2px solid #9b9292;
+       }
     </style>
 
 
@@ -267,9 +322,97 @@
                 </div>
                 <!-- End Side Bar -->
                 @* <hr class="vertical-hr" style="height:auto;"/> *@
-                <div id="mainContent" style="width: 100%">
+                <div id="mainContent" style="width: 100%" >
                     <!-- Tab -->
-                   
+                    <div class="tab-data d-flex justify-content-between align-items-center" style="margin-top:10px;">
+                        <ul class="nav nav-tabs ms-3" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link active"
+                                   id="Active-tab"
+                                   data-bs-toggle="tab"
+                                   href="#"
+                                   role="tab"
+                                   aria-controls="Active"
+                                   aria-selected="true">Active</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link"
+                                   id="Unattended-tab"
+                                   data-bs-toggle="tab"
+                                   href="#"
+                                   role="tab"
+                                   aria-controls="Unattended"
+                                   aria-selected="false">Unattended</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link"
+                                   id="Completed-tab"
+                                   data-bs-toggle="tab"
+                                   href="#"
+                                   role="tab"
+                                   aria-controls="Completed"
+                                   aria-selected="false">Completed</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link"
+                                   id="Search-tab"
+                                   data-bs-toggle="tab"
+                                   href="#"
+                                   role="tab"
+                                   aria-controls="Search"
+                                   aria-selected="false">Search</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link"
+                                   id="Recurring-tab"
+                                   data-bs-toggle="tab"
+                                   href="#"
+                                   role="tab"
+                                   aria-controls="Recurring"
+                                   aria-selected="false">Recurring</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link"
+                                   id="Cancelled-tab"
+                                   data-bs-toggle="tab"
+                                   href="#"
+                                   role="tab"
+                                   aria-controls="Cancelled"
+                                   aria-selected="false">Cancelled</a>
+                            </li>
+                        </ul>
+                        <div class="btn-group me-3">
+                            <div class="tab-btn d-flex align-items-center">
+                                <div class="dropdown-calendar me-2">
+                                    <button class="btn btn-outline-secondary dropdown-toggle"
+                                            type="button"
+                                            id="dropdownMenuButton"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        <i class="bi bi-calendar"></i> All Days
+                                    </button>
+                                    <ul class="dropdown-menu"
+                                        aria-labelledby="dropdownMenuButton">
+                                        <li><a class="dropdown-item" href="#">Day 1</a></li>
+                                        <li><a class="dropdown-item" href="#">Day 2</a></li>
+                                        <li><a class="dropdown-item" href="#">Day 3</a></li>
+                                        <li><a class="dropdown-item" href="#">Day 4</a></li>
+                                        <li><a class="dropdown-item" href="#">Day 5</a></li>
+                                    </ul>
+                                </div>
+                                <div class="import-btn me-2">
+                                    <a class="btn btn-outline-secondary d-flex align-items-center " style="color:rgb(130 127 127);"><i class="bi bi-file-earmark-pdf me-1"></i> Import</a>
+                                </div>
+                                <div class="dropdown-new-task  me-2" style="width:89px !important">
+                                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" id="btnAddTsk" data-bs-target="#myNewTaskModal">
+                                        <i class="bi bi-plus"></i> New Task
+                                    </button>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="mt-2" />
                     <!-- Tab End -->
 
                     <div class="ms-1 me-1">
@@ -340,8 +483,6 @@
             renderChoiceLimit: 5
         });
 
-
-
          const choices1 = new Choices('#requesterName', { searchEnabled: true });
          const choices2 = new Choices('#pickupLocation', { searchEnabled: true });
          const choices3 = new Choices('#recipientName', { searchEnabled: true });
@@ -350,22 +491,63 @@
 
     @* *****************************Group Button Js*************************************** *@
 
-    <script>
+  @*   <script>
+
 
         document.querySelector('.group-button').addEventListener('click', function () {
-            // Remove existing borders
-            document.querySelectorAll('.group-border').forEach(function (row) {
-                row.classList.remove('group-border');
+            // Remove the 'group-3d' class from all rows initially
+            document.querySelectorAll('tr').forEach(function (row) {
+                row.classList.remove('group-3d');
             });
 
-            // Add border to the group
+            // Apply the 'group-3d' class to rows with checked checkboxes
             document.querySelectorAll('.row-checkbox:checked').forEach(function (checkbox) {
                 var row = checkbox.closest('tr');
                 row.classList.add('group-3d');
             });
         });
-    </script>
+
+    </script> *@
     @* ************************************************************************************ *@
+@*     <script>
+        document.querySelectorAll('.nav-link').forEach(tab => {
+            tab.addEventListener('click', function () {
+                document.getElementById('myTabjustifiedContentGroup').classList.remove('d-none');
+            });
+        });
+    </script> *@
+@*  <script>
+        // Show tab content when a tab is clicked
+        document.querySelectorAll('.nav-link').forEach(tab => {
+            tab.addEventListener('click', function () {
+                document.getElementById('myTabjustifiedContentGroup').classList.remove('d-none');
+            });
+        });
+
+        // Hide the tab content and deactivate tab when "Cancel" is clicked
+        document.querySelectorAll("#closeTabButton").forEach(button => {
+            button.addEventListener("click", function () {
+                // Find the active tab pane and hide it by removing 'active' and 'show'
+                var activeTabPane = document.querySelector('.tab-pane.active');
+                if (activeTabPane) {
+                    activeTabPane.classList.remove('active', 'show');
+                }
+
+                // Deactivate the corresponding tab button
+                var activeTabButton = document.querySelector('.nav-link.active');
+                if (activeTabButton) {
+                    activeTabButton.classList.remove('active');
+                }
+
+                // Optionally hide the tab content area if no tabs are active
+                var tabContentArea = document.getElementById("myTabjustifiedContentGroup");
+                if (!document.querySelector('.tab-pane.active')) {
+                    tabContentArea.classList.add('d-none');
+                }
+            });
+        });
+
+ </script> *@
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

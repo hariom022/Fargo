@@ -8,5 +8,9 @@ namespace FargoMain.Controllers
         {
             return View();
         }
+        public IActionResult GroupData()
+        {
+            return View();
+        }
     }
 }
