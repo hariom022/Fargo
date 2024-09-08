@@ -163,9 +163,12 @@ hr {
     /*border-color: #e9ecef;*/
 }
 
+.nav-tabs .nav-link{
+    color:black !important;
+}
 .nav-tabs .nav-link.active {
     /*border-color: #4674ee !important;*/
-    color: #164b16 !important;
+    color: #132553 !important;
 }
 
 .dashboard-tab-content {
