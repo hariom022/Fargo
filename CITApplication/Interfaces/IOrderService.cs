@@ -10,6 +10,7 @@ namespace CITApplication.Interfaces
 {
     public interface IOrderService
     {
-         Task<int> CreateOrder(OrderModel orderModel);
+        Task<int> CreateOrder(OrderModel orderModel);
+        Task<OrderResponse> GetOrderData(int ResourceId);
     }
 }

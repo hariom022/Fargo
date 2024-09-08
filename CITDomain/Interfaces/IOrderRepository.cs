@@ -10,5 +10,6 @@ namespace CITDomain.Interfaces
     public interface IOrderRepository
     {
         Task<int> CreateOrder(OrderModel order);
+        Task<OrderResponse> GetOrderData(int ResourceId);
     }
 }

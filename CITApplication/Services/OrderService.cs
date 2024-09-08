@@ -22,5 +22,14 @@ namespace CITApplication.Services
         {
             return await _IOrderRepository.CreateOrder(orderModel);       
         }
+        public async Task<OrderResponse> GetOrderData(int resourceId)
+        {
+            return await _IOrderRepository.GetOrderData(resourceId);
+        }
+
+        //Task<OrderVM> IOrderService.GetOrderData(int ResourceId)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

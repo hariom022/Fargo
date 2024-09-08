@@ -11,7 +11,7 @@ namespace CITDomain.Model
         //public string OrderNumber { get; set; }
         //public int OrderId { get; set; }
         public int OrderTypeId { get; set; }
-        //public int CustomerId { get; set; }
+        public int CustomerId { get; set; }
         //public int RouteID { get; set; }
         //public int PickUpLocation { get; set; }
         //public string IsVault { get; set; }
@@ -26,25 +26,11 @@ namespace CITDomain.Model
         //public DateTime EndTask { get; set; }
         //public string RepeatIn { get; set; }
         public List<TaskModel> taskmodellist { get; set; }
-
     }
     public class TaskModel
     {
-        //public int TaskID { get; set; }
-        //public int OrderID { get; set; }
-        //public string TaskType { get; set; }
-        //public int PickType { get; set; }
-        //public string PickUpLocation { get; set; }
-        //public string DeliveryLocation { get; set; }
-        //public int TaskSequence { get; set; }
-        //public bool IsRecurring { get; set; }
-        //public string DataSource { get; set; }
-        //public bool IsActive { get; set; }
-        //public int CreatedBy { get; set; }
-        //public bool IsDeleted { get; set; }
-        //public string PickupType { get; set; }
         public int TaskID { get; set; }
-        //public string OrderID { get; set; }
+        public string OrderID { get; set; }
         public string PickupType { get; set; }
         public string RequesterName { get; set; }
         public string PickupLocation { get; set; }
@@ -60,11 +46,21 @@ namespace CITDomain.Model
         public int RouteID { get; set; }
         public string PickUpLocation { get; set; }
         public string DeliveryLocation { get; set; }
-    }
-
+    } 
     public class CustomerMaster
     {
         public int CustomerID { get; set; }
         public string CustomerName { get; set; }
+    }
+    public class OrderTypeMaster
+    {
+        public int OrderTypeID { get; set; }
+        public string TypeName { get; set; }
+    }
+    public class OrderResponse
+    {
+        public List<OrderModel> orderlist { get; set; }
+        public List<CustomerMaster> customerMasterslist { get; set; }
+        public List<OrderTypeMaster> OrdertypeMasterlist { get; set; }
     }
 }

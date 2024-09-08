@@ -1,4 +1,5 @@
 ﻿using CITApplication.Interfaces;
+using CITApplication.Services;
 using CITApplication.ViewModels;
 using CITDomain.Model;
 using Microsoft.AspNetCore.Mvc;
@@ -12,9 +13,11 @@ namespace FargoMain.Controllers
         {
             _OrderService = OrderService;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-
+            int ResourceId = 4;
+            OrderResponse orderVM = new OrderResponse();
+            orderVM = await _OrderService.GetOrderData(ResourceId);
             return View();
         }
 
@@ -22,7 +25,7 @@ namespace FargoMain.Controllers
         public IActionResult CreateOrder([FromBody] OrderModel order)
         {
             var task = _OrderService.CreateOrder(order);
-            var result=task.Result;
+            var result = task.Result;
             return View();
         }
     }
