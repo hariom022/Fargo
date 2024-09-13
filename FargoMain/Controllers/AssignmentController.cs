@@ -2,13 +2,9 @@
 
 namespace FargoMain.Controllers
 {
-    public class NewTaskController : Controller
+    public class AssignmentController : Controller
     {
         public IActionResult Index()
-        {
-            return View();
-        }
-        public IActionResult GroupData()
         {
             return View();
         }

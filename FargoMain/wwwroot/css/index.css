@@ -3,10 +3,30 @@
     padding: 0;
     margin: 0;
 }
+@font-face {
+    font-family: 'poppins-black';
+    src: url('../font/poppins-black.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'poppins-light';
+    src: url('../font/poppins-light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'poppins-regular';
+    src: url('../font/poppins-regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'poppins-medium';
+    src: url('../font/poppins-medium.ttf') format('truetype');
+}
 
 body {
     overflow-x: hidden;
-    
+    font-family: poppins-regular !important;
+    font-size: 12px !important;
 }
 
 hr {
@@ -143,8 +163,9 @@ hr {
 
 .nav-tabs {
     /*border-bottom: none;*/
-    /*width: 100%;*/
+    width: 100%;
     background: #efefef !important;
+    border:none;
 }
 
     .nav-tabs .nav-link {

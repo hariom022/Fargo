@@ -1,6 +1,26 @@
 html {
     font-size: 12px;
 }
+@font-face {
+    font-family: 'poppins-black';
+    src: url('../font/poppins-black.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'poppins-light';
+    src: url('../font/poppins-light.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'poppins-regular';
+    src: url('../font/poppins-regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'poppins-medium';
+    src: url('../font/poppins-medium.ttf') format('truetype');
+}
+body {
+    font-family: poppins-regular !important;
+    font-size: 12px !important;
+}
 
 @media (min-width: 768px) {
     html {
@@ -243,7 +263,7 @@ button {
 
 /* Custom width and height for the modal dialog */
 .custom-modal-size .modal-dialog {
-    max-width: 486px;
+    max-width: 514px;
     max-height: 300px;
     margin: 1rem auto;
 }

@@ -37,7 +37,7 @@
         }
 
         .btn-color {
-            background: #132553 !important;
+            background: #032b56 !important;
             color: white !important;
         }
 
@@ -100,7 +100,41 @@
   
        .form-check-input {
             border: 2px solid #9b9292;
+           
        }
+       .form-check :hover{
+          /*   background: #132553 !important;
+           width:100%; */
+       }
+
+        #assignModal .nav-link.active {
+           
+            color: #032b56;
+        }
+
+
+
+        /* Add border to the active tab 
+        .nav-tabs .nav-link.active {
+            border-bottom: 2px solid #032b56 !important; 
+            color: #032b56 !important; 
+        }
+
+        .nav-tabs .nav-link{
+            color:#555 !important;
+        }
+
+     
+        .nav-tabs .nav-link {
+            color: #555;
+            border:none;
+        }
+
+         
+            .nav-tabs .nav-link span {
+                padding-bottom: 5px; 
+            } */
+
     </style>
 
 
@@ -200,24 +234,32 @@
                             </li>
                             <hr class="user" />
                             <li class="nav-item mt-1">
-                                <a asp-action="Overview" asp-controller="Dashboard" class="nav-link align-middle px-0 active">
+                                <a asp-action="Overview" asp-controller="Dashboard" class="nav-link align-middle px-0   @(ViewContext.RouteData.Values["controller"].ToString() == "Dashboard" && ViewContext.RouteData.Values["action"].ToString() == "Overview" ? "active" : "")">
                                     <i class=" bi-speedometer2"></i>
                                     <span class="ms-1 ">Dashboard</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a
-                                   class="nav-link px-0 align-middle" data-bs-toggle="nav"
+                                <a class="nav-link px-0 align-middle @(ViewContext.RouteData.Values["controller"].ToString() == "NewTask" && ViewContext.RouteData.Values["action"].ToString() == "Index" ? "active" : "")" data-bs-toggle="nav"
                                    role="nav"
                                    aria-selected="false"
-                                   asp-action="Index" asp-controller="Task"
+                                   asp-action="Index" asp-controller="NewTask"
                                 >
                                     <i class="bi bi-list-task"></i>
                                     <span class="ms-1 ">Task</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a asp-action="Index" asp-controller="Calendar"
+                                <a class="nav-link px-0 align-middle @(ViewContext.RouteData.Values["controller"].ToString() == "Assignment" && ViewContext.RouteData.Values["action"].ToString() == "Index" ? "active" : "")" data-bs-toggle="nav"
+                                   role="nav"
+                                   aria-selected="false"
+                                   asp-action="Index" asp-controller="Assignment">
+                                    <i class="bi bi-clipboard-check"></i> <!-- Assignment icon -->
+                                    <span class="ms-1">Assignment</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a 
                                 class="nav-link px-0 align-middle" data-bs-toggle="nav"
                                    role="nav"
                                    aria-selected="false">
@@ -277,7 +319,7 @@
                                    role="nav"
                                    aria-selected="false">
                                     <i class="bi bi-houses-fill"></i>
-                                    <span class="ms-1 ">Merchants</span>
+                                    <span class="ms-1 ">Customers</span>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -324,7 +366,7 @@
                 @* <hr class="vertical-hr" style="height:auto;"/> *@
                 <div id="mainContent" style="width: 100%" >
                     <!-- Tab -->
-                    <div class="tab-data d-flex justify-content-between align-items-center" style="margin-top:10px;">
+@*                     <div class="tab-data d-flex justify-content-between align-items-center" style="margin-top:10px;">
                         <ul class="nav nav-tabs ms-3" id="myTab" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link active"
@@ -381,7 +423,7 @@
                                    aria-selected="false">Cancelled</a>
                             </li>
                         </ul>
-                        <div class="btn-group me-3">
+                        <div class="btn-group me-1">
                             <div class="tab-btn d-flex align-items-center">
                                 <div class="dropdown-calendar me-2">
                                     <button class="btn btn-outline-secondary dropdown-toggle"
@@ -403,7 +445,7 @@
                                 <div class="import-btn me-2">
                                     <a class="btn btn-outline-secondary d-flex align-items-center " style="color:rgb(130 127 127);"><i class="bi bi-file-earmark-pdf me-1"></i> Import</a>
                                 </div>
-                                <div class="dropdown-new-task  me-2" style="width:89px !important">
+                                <div class="dropdown-new-task  me-2" style="width:91px !important">
                                     <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" id="btnAddTsk" data-bs-target="#myNewTaskModal">
                                         <i class="bi bi-plus"></i> New Task
                                     </button>
@@ -412,7 +454,11 @@
                             </div>
                         </div>
                     </div>
-                    <hr class="mt-2" />
+ *@                  
+                      @* <hr class="mt-2" /> *@
+
+
+
                     <!-- Tab End -->
 
                     <div class="ms-1 me-1">

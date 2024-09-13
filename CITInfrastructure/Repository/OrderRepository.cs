@@ -49,12 +49,14 @@ namespace CITInfrastructure.Repository
                 string endpoint = "http://localhost:5112/";
                 //HttpContent body = new StringContent(JsonConvert.SerializeObject(ResourceId), Encoding.UTF8, "application/json");
                 var data = new StringContent("{\"ResourceId\":" + ResourceId + "}", Encoding.UTF8, "application/json");
-                HttpResponseMessage response = client.PostAsync(new Uri(endpoint + String.Format("api/Order/GetOrderDetails")),data).Result;
-                if (response.IsSuccessStatusCode)
-                {
-                    var OrderlistDetails = response.Content.ReadAsStringAsync().Result;
-                    orderResponse = JsonConvert.DeserializeObject<OrderResponse>(OrderlistDetails);
-                }
+                //HttpResponseMessage response = client.PostAsync(new Uri(endpoint + String.Format("api/Order/GetOrderDetails")),data).Result;
+                //if (response.IsSuccessStatusCode)
+                //{
+                //    var OrderlistDetails = response.Content.ReadAsStringAsync().Result;
+                //    orderResponse = JsonConvert.DeserializeObject<OrderResponse>(OrderlistDetails);
+                //}
+
+
                 //HttpResponseMessage response =  client.PostAsync("api/Order/GetOrderData", data).Result;
                 //int REspo= response.StatusCode;
                 //var Customerlist = response.Read<CustomerMaster>().ToList();

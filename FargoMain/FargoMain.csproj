@@ -23,4 +23,8 @@
     <ProjectReference Include="..\CITInfrastructure\CITInfrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\font\" />
+  </ItemGroup>
+
 </Project>
